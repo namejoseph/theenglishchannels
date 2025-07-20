@@ -125,14 +125,14 @@ header {
     position: absolute;
     top: 30px;
     left: 100px;
-    width: 300px;
-    height: 150px;
+    width: 100%;
+    max-width: 300px;   /* optional: limit size on large screens */
+    height: auto;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    max-width: 80%;
 }
 
 .header-socials {
@@ -174,8 +174,9 @@ header {
     .logo-container {
         position: relative;
         left: 0;
-        
-        max-width: 80%;
+        width: 80%;        /* make it responsive on mobile */
+        max-width: 300px;
+        height: auto;
     }
 
     .menu-nav {
