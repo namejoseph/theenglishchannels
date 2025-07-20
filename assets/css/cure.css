@@ -126,7 +126,8 @@ header {
     top: 30px;
     left: 100px;
     width: 100%;
-    max-width: 300px;   /* optional: limit size on large screens */
+    max-width: 300px;
+    /* optional: limit size on large screens */
     height: auto;
     font-weight: bold;
     display: flex;
@@ -181,7 +182,8 @@ header {
     .logo-container {
         position: relative;
         left: 0;
-        width: 80%;        /* make it responsive on mobile */
+        width: 80%;
+        /* make it responsive on mobile */
         max-width: 300px;
         height: auto;
     }
@@ -809,7 +811,7 @@ textarea:focus {
 
 /* Footer */
 #footer {
-    background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat center center;
+    background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat top center;
     background-size: cover;
     padding: 4rem 2rem;
     text-align: center;
@@ -1062,18 +1064,6 @@ textarea:focus {
 .contact-form textarea {
     min-height: 150px;
     resize: vertical;
-}
-
-/* Footer */
-#footer {
-    background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat center center;
-    background-size: 100% auto;
-    padding: 2rem 2rem;
-    text-align: center;
-    color: #fff;
-    font-family: 'Futura', sans-serif;
-    width: 100%;
-    overflow: hidden;
 }
 
 .footer-content {
