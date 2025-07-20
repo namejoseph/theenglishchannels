@@ -135,6 +135,13 @@ header {
     z-index: 2;
 }
 
+.logo-container img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+}
+
 .header-socials {
     position: absolute;
     top: 30px;
