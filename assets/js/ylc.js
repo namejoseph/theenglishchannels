@@ -55,6 +55,41 @@ function displayRandomLyrics() {
   }
 }
 
+// Lightbox functionality - moved to global scope
+function openLightbox(imageSrc) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = imageSrc;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+function initializeGalleryLightbox() {
+  // Close lightbox when clicking the overlay
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.addEventListener('click', function(event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(event) {
+    const lightbox = document.getElementById('lightbox');
+    if (event.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Get DOM elements
   const hamburger = document.querySelector('.hamburger');
@@ -136,8 +171,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add resize event listener
   window.addEventListener('resize', handleResize);
 
-  // Display random lyrics when the page loads
+  // Initialize random lyrics display
   displayRandomLyrics();
+  
+  // Initialize gallery lightbox
+  initializeGalleryLightbox();
 
   // Change lyrics every 10 seconds (optional)
   setInterval(displayRandomLyrics, 10000);

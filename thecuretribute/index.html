@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cure Tribute Band | The English Channels</title>
-    <meta name="description" content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
+    <title>The Cure Tribute Band | From Austin, TX</title>
+    <meta name="description"
+        content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
     <link rel="stylesheet" href="https://use.typekit.net/coy4inr.css">
     <link rel="stylesheet" href="../assets/css/cure.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Futura:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
     <!-- Main container with repeating background for first six sections -->
     <div class="main-container">
@@ -19,29 +22,33 @@
         <header id="header" class="section">
             <div class="illustration"></div>
 
-    <div class="logo-container"><img src="../assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute Band" class="logo-cure"></div>
+            <div class="logo-container"><img src="../assets/images/logos/tec-website-logo-cure.svg"
+                    alt="The Cure Tribute Band" class="logo-cure"></div>
 
-    <div class="header-socials">
-        <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="X (Twitter)" class="social-icon"><i class="fab fa-x-twitter"></i></a>
-      </div>
+            <div class="header-socials">
+                <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="X (Twitter)" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+            </div>
 
-    <nav class="menu-nav">
-        <a href="#about">ABOUT</a>
-        <a href="#shows">SHOWS</a>
-        <a href="#videos">VIDEOS</a>
-        <a href="#photos">PHOTOS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+            <nav class="menu-nav">
+                <a href="#about">ABOUT</a>
+                <a href="#shows">SHOWS</a>
+                <a href="#videos">VIDEOS</a>
+                <a href="#photos">PHOTOS</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
         </header>
 
         <!-- About Section -->
         <section id="about" class="section">
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><strong>The Cure Tribute</strong> is an Austin, TX-based band dedicated to celebrating the iconic music
+                of The Cure and Robert Smith. Performing songs from classic albums like <em>Disintegration</em>,
+                <em>Pornography</em>, and <em>The Head on the Door</em>, the band brings to life the sound and
+                atmosphere of The Cure’s most beloved eras.
+            </p>
         </section>
 
         <!-- Shows Section -->
@@ -53,13 +60,13 @@
                 <div class="show-venue">THE GOTHIC THEATRE</div>
                 <div class="show-location">ENGLEWOOD, CO</div>
                 <a href="#" class="tickets-btn">TICKETS</a>
-                
+
                 <!-- Show 2 -->
                 <div class="show-date">NOV 15</div>
                 <div class="show-venue">THE ROXY THEATRE</div>
                 <div class="show-location">WEST HOLLYWOOD, CA</div>
                 <a href="#" class="tickets-btn">TICKETS</a>
-                
+
                 <!-- Show 3 -->
                 <div class="show-date">DEC 5</div>
                 <div class="show-venue">THE METRO</div>
@@ -69,16 +76,16 @@
         </section>
 
         <!-- Video Section -->
-        <section id="video" class="section">
+        <!-- <section id="video" class="section">
             <h1>Videos</h1>
             <p>COMING SOON</p>
-        </section>
+        </section> -->
 
         <!-- Photos Section -->
-        <section id="photos" class="section">
+        <!-- <section id="photos" class="section">
             <h1>Photos</h1>
             <p>COMING SOON</p>
-        </section>
+        </section> -->
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
@@ -111,23 +118,23 @@
 
     <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
+
     <!-- Main JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile Menu Toggle
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             const navLinksItems = document.querySelectorAll('.nav-links li');
             const body = document.body;
-            
+
             // Toggle mobile menu
-            hamburger.addEventListener('click', function() {
+            hamburger.addEventListener('click', function () {
                 this.classList.toggle('active');
                 navLinks.classList.toggle('active');
                 body.classList.toggle('no-scroll');
             });
-            
+
             // Close menu when clicking on a nav link
             navLinksItems.forEach(item => {
                 item.addEventListener('click', () => {
@@ -138,21 +145,21 @@
                     }
                 });
             });
-            
+
             // Sticky navigation on scroll
             const nav = document.querySelector('.main-nav');
             let lastScroll = 0;
-            
+
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset;
-                
+
                 // Add/remove scrolled class for nav background
                 if (currentScroll > 50) {
                     nav.classList.add('scrolled');
                 } else {
                     nav.classList.remove('scrolled');
                 }
-                
+
                 // Hide/show nav on scroll
                 if (currentScroll > lastScroll && currentScroll > 200) {
                     // Scrolling down
@@ -161,23 +168,23 @@
                     // Scrolling up
                     nav.style.transform = 'translateY(0)';
                 }
-                
+
                 lastScroll = currentScroll;
             });
-            
+
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         const headerOffset = 80;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        
+
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: 'smooth'
@@ -188,4 +195,5 @@
         });
     </script>
 </body>
+
 </html>
