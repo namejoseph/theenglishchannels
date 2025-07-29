@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Add resize event listener
-  window.addEventListener('resize', handleResize);
+  // window.addEventListener('resize', handleResize);
 
   // Initialize random lyrics display
   displayRandomLyrics();

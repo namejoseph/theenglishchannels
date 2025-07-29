@@ -166,13 +166,15 @@ img {
 .hamburger-menu::before {
     width: calc(100% + 15px);
     height: calc(100% + 15px);
-    border: 3px solid var(--white); /* 33% thicker */
+    border: 3px solid var(--white);
+    /* 33% thicker */
 }
 
 .hamburger-menu::after {
     width: calc(100% + 35px);
     height: calc(100% + 35px);
-    border: 7px solid var(--white); /* 33% thicker */
+    border: 7px solid var(--white);
+    /* 33% thicker */
 }
 
 .hamburger-menu span {
@@ -202,7 +204,8 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Left align content */
+    align-items: flex-start;
+    /* Left align content */
     padding: 20px 40px;
 }
 
@@ -217,7 +220,8 @@ img {
     font-size: 24px;
     color: var(--orange);
     background: none;
-    border: 6px solid var(--orange); /* 3x thicker */
+    border: 6px solid var(--orange);
+    /* 3x thicker */
     border-radius: 50%;
     cursor: pointer;
     width: 40px;
@@ -235,7 +239,8 @@ img {
 .mobile-nav a {
     display: block;
     margin: 15px 0;
-    font-size: clamp(30px, 6vw, 40px); /* Larger responsive font size */
+    font-size: clamp(30px, 6vw, 40px);
+    /* Larger responsive font size */
     text-transform: uppercase;
     text-align: left;
     transition: color 0.3s ease;
@@ -265,14 +270,17 @@ img {
 /* --- Main Content --- */
 .site-main {
     display: flex;
-    flex-direction: column; /* Mobile-first: stacks sections vertically */
+    flex-direction: column;
+    /* Mobile-first: stacks sections vertically */
     width: 100%;
-    flex: 1; /* This is key for filling height */
+    flex: 1;
+    /* This is key for filling height */
     background: var(--black) url('../images/backgrounds/tec-website-bg-black.jpg') no-repeat center center/cover;
 }
 
 .split-section {
-    flex: 1; /* Each section will take up equal space */
+    flex: 1;
+    /* Each section will take up equal space */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -312,7 +320,7 @@ img {
     letter-spacing: 0.1em;
     background-color: #000;
     color: var(--white);
-    font-family: futura,sans-serif;
+    font-family: futura, sans-serif;
 }
 
 .enter-site-btn:hover {
@@ -339,21 +347,21 @@ img {
 /* --- Footer --- */
 .site-footer-main {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     padding: 20px 200px 20px 200px;
     background-color: var(--black);
     flex-wrap: wrap;
-align-items: center;
-padding: 20px 200px 20px 200px;
-background-color: var(--black);
-flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 100px 20px 100px;
+    background-color: var(--black);
+    flex-wrap: wrap;
 }
 
 .footer-logo {
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     justify-content: center;
     align-items: center;
 }
@@ -372,7 +380,8 @@ align-items: center;
 
 .footer-fine-print {
     text-align: left;
-    font-size: 0.6em; /* 25% smaller than parent */
+    font-size: 0.6em;
+    /* 25% smaller than parent */
 }
 
 .footer-social-icons {
@@ -385,23 +394,24 @@ align-items: center;
 
 /* Desktop styles */
 @media (min-width: 768px) {
+
     .footer-fine-print,
     .footer-logo,
     .footer-social-icons {
         flex: 1;
     }
-    
+
     .footer-fine-print {
         order: 1;
         text-align: left;
     }
-    
+
     .footer-logo {
         order: 2;
         display: flex;
         justify-content: center;
     }
-    
+
     .footer-social-icons {
         order: 3;
         text-align: right;
@@ -427,13 +437,15 @@ align-items: center;
     color: var(--orange);
 }
 
-.email-link, .contact-link {
+.email-link,
+.contact-link {
     text-transform: uppercase;
     color: var(--orange);
     transition: color 0.3s;
 }
 
-.email-link:hover, .contact-link:hover {
+.email-link:hover,
+.contact-link:hover {
     color: var(--dark-gray);
 }
 
@@ -461,7 +473,8 @@ align-items: center;
     display: inline;
 }
 
-.about-content, .contact-content {
+.about-content,
+.contact-content {
     margin: 0 auto;
     text-align: center;
     width: 1000px;
@@ -582,7 +595,7 @@ align-items: center;
     .contact-form {
         padding: 0;
     }
-    
+
     .contact-form input,
     .contact-form textarea {
         max-width: 100%;
