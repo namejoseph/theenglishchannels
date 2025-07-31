@@ -83,10 +83,51 @@
         </section> -->
 
         <!-- Photos Section -->
-        <!-- <section id="photos" class="section">
+        <section id="photos" class="section gallery-section">
             <h1>Photos</h1>
-            <p>COMING SOON</p>
-        </section> -->
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure1.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure1-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure2.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure2-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure3.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure3-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure4.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure4-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure5.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure5-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure6.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure6-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure7.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure7-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure8.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure8-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure9.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure9-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/tec-website-photo-cure10.jpg')">
+                    <img src="../assets/images/photos/cure/tec-website-photo-cure10-thumbnail.jpg"
+                        alt="The Cure Tribute performance">
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
@@ -111,6 +152,12 @@
             </form>
         </section>
     </div> <!-- End of main container -->
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" onclick="event.stopPropagation()">
+    </div>
 
     <!-- Footer with different background -->
     <footer id="footer">
@@ -193,7 +240,45 @@
                     }
                 });
             });
+
+            // Initialize gallery lightbox
+            initializeGalleryLightbox();
         });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function initializeGalleryLightbox() {
+            // Close lightbox when clicking the overlay
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.addEventListener('click', function(event) {
+                    if (event.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+
+            // Close lightbox with Escape key
+            document.addEventListener('keydown', function(event) {
+                const lightbox = document.getElementById('lightbox');
+                if (event.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        }
     </script>
 </body>
 
