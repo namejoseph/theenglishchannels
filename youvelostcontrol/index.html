@@ -235,15 +235,66 @@
       <img id="lightbox-img" class="lightbox-content" onclick="event.stopPropagation()">
     </div>
   </section>
+
+  <!-- Contact Section -->
   <section id="contact">
     <h1>CONTACT</h1>
-    <form class="contact-form">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
+    <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
       <button class="btn" type="submit">Submit</button>
     </form>
+    <div id="form-message" style="display:none;margin-top:1em;"></div>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const formMessage = document.getElementById('form-message');
+
+        // Disable the submit button to prevent multiple submissions
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        formMessage.style.display = 'none';
+
+        // Submit the form data using Fetch API
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+          .then(response => {
+            if (response.ok) {
+              // Success message
+              formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+              formMessage.style.color = '#fff';
+              form.reset();
+            } else {
+              throw new Error('Network response was not ok');
+            }
+          })
+          .catch(error => {
+            // Error message
+            formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
+            formMessage.style.color = '#ff410d';
+            console.error('Error:', error);
+          })
+          .finally(() => {
+            formMessage.style.display = 'block';
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit';
+
+            // Scroll to the message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+      });
+    </script>
   </section>
+
+  <!-- Footer Section -->
   <footer class="footer">
     <div class="lyrics-container">
       <div class="lyrics-text" id="lyricsDisplay"></div>
