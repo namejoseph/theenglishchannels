@@ -88,7 +88,7 @@
                 <p>For booking inquiries, press, or general questions, please use the form below.<br>
                     We'll get back to you as soon as possible.</p>
                 
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">NAME</label>
                         <input type="text" id="name" name="name" required>
@@ -104,8 +104,61 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     
+                    <!-- Hidden honeypot field for spam prevention -->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="_gotcha" tabindex="-1">
+                    </div>
+                    
                     <button type="submit" class="enter-site-btn">SUBMIT</button>
+                    <div id="form-message" style="display: none; margin-top: 15px;"></div>
                 </form>
+                
+                <script>
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const form = e.target;
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const formMessage = document.getElementById('form-message');
+                    
+                    // Disable the submit button to prevent multiple submissions
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    formMessage.style.display = 'none';
+                    
+                    // Submit the form data using Fetch API
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success message
+                            formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+                            formMessage.style.color = '#4CAF50';
+                            form.reset();
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        // Error message
+                        formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
+                        formMessage.style.color = '#f44336';
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        formMessage.style.display = 'block';
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'SUBMIT';
+                        
+                        // Scroll to the message
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    });
+                });
+                </script>
                 
                 <div class="contact-alternative">
                     <p>Or email us directly at: <a href="mailto:eventsproductionsbooking@gmail.com" class="email-link">eventsproductionsbooking@gmail.com</a></p>
