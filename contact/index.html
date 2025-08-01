@@ -137,7 +137,7 @@
                         if (response.ok) {
                             // Success message
                             formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
-                            formMessage.style.color = '#4CAF50';
+                            formMessage.style.color = '#fff';
                             form.reset();
                         } else {
                             throw new Error('Network response was not ok');
@@ -146,7 +146,7 @@
                     .catch(error => {
                         // Error message
                         formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
-                        formMessage.style.color = '#f44336';
+                        formMessage.style.color = '#ff410d';
                         console.error('Error:', error);
                     })
                     .finally(() => {
