@@ -131,7 +131,7 @@ img {
 }
 
 .section-content {
-    width: 60%;
+    width: 100%;
 }
 
 /* --- Hamburger Menu --- */
@@ -306,7 +306,7 @@ img {
 .site-main .tribute-logo-ylc {
     width: clamp(400px, 30vw, 450px);
     height: auto;
-    margin: 4vh auto 6vh;
+    margin: 7vh auto 7vh;
 }
 
 .enter-site-btn {
@@ -331,7 +331,7 @@ img {
 
 .show-list {
     width: 90%;
-    max-width: 350px;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: 25px;
 }
