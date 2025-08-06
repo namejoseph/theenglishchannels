@@ -698,12 +698,24 @@ textarea:focus {
 }
 
 .shows-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.show-row {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
     gap: 1.5rem;
     align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.tickets-placeholder {
+    /* Empty placeholder for consistent grid alignment */
+    min-height: 1px;
 }
 
 .show-date {
