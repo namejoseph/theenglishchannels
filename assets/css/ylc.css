@@ -413,7 +413,7 @@ a:hover {
 .shows-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .shows-table th,
@@ -554,4 +554,23 @@ a:hover {
 
 .footer-padding {
   padding-bottom: 3rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-family: "grand-central", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.stage-plot {
+  margin-bottom: 3rem;
+}
+
+.stage-plot img {
+  max-width: 80%;
+  width: 800px;
+  height: auto;
 }

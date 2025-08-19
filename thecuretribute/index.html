@@ -14,34 +14,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Futura:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<!-- Primary Meta Tags -->
-<meta name="title" content="The Cure Tribute">
-<meta name="description"
-  content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="The Cure Tribute">
+    <meta name="description"
+        content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://theenglishchannels.com/thecuretribute/">
-<meta property="og:title" content="The Cure Tribute">
-<meta property="og:description"
-  content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
-<meta property="og:image"
-  content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
-<meta property="og:image:secure_url"
-  content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theenglishchannels.com/thecuretribute/">
+    <meta property="og:title" content="The Cure Tribute">
+    <meta property="og:description"
+        content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
+    <meta property="og:image" content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
+    <meta property="og:image:secure_url" content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://theenglishchannels.com/thecuretribute/">
-<meta property="twitter:title" content="The Cure Tribute">
-<meta property="twitter:description"
-  content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
-<meta property="twitter:image"
-  content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theenglishchannels.com/thecuretribute/">
+    <meta property="twitter:title" content="The Cure Tribute">
+    <meta property="twitter:description"
+        content="Experience the ultimate tribute to The Cure with The English Channels. Capturing the sound and spirit of The Cure's legendary music.">
+    <meta property="twitter:image" content="../assets/images/photos/cure/tec-website-photo-cure1.jpg">
 
-<!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/images/favicons/cure/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/cure/favicon.svg" />
     <link rel="shortcut icon" href="../assets/images/favicons/cure/favicon.ico" />
@@ -92,6 +89,12 @@
         <!-- Shows Section -->
         <section id="shows" class="section">
             <h1>Shows</h1>
+
+            <div class="show-flyers">
+                <a href="https://link.dice.fm/lfdf6ba6dc20" target="_blank"><img
+                        src="../assets/images/flyers/englishchannels11.7.25fbevent.jpg"
+                        alt="The Cure Tribute at The 13th Floor November 8th"></a>
+            </div>
             <div class="shows-grid">
                 <div class="show-row">
                     <div class="show-date">FRI NOV 7</div>
@@ -128,10 +131,13 @@
                     <div class="tickets-placeholder"></div>
                 </div>
             </div>
-            <div class="show-flyers">
-                <a href="https://link.dice.fm/lfdf6ba6dc20" target="_blank"><img
-                        src="../assets/images/flyers/englishchannels11.7.25fbevent.jpg"
-                        alt="The Cure Tribute at The 13th Floor November 8th"></a>
+
+
+            <!-- stage plot -->
+            <div class="stage-plot">
+                <a href="../assets/images/stageplots/super8-stageplotinputlist-2025.pdf" target="_blank"><img
+                        src="../assets/images/stageplots/cure-stageplotinputlist-2025.jpg"
+                        alt="The Cure Tribute stage plot" class="stage-plot-photo"></a>
             </div>
         </section>
 
@@ -242,7 +248,8 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <h1>Contact</h1>
-            <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST" enctype="multipart/form-data">
+            <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST"
+                enctype="multipart/form-data">
                 <div class="input-row">
                     <div class="input-group">
                         <label for="name">Name</label>
@@ -262,50 +269,50 @@
             </form>
             <div id="form-message" style="display:none;margin-top:1em;"></div>
             <script>
-            document.getElementById('contactForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const form = e.target;
-                const submitButton = form.querySelector('button[type="submit"]');
-                const formMessage = document.getElementById('form-message');
+                document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const form = e.target;
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const formMessage = document.getElementById('form-message');
 
-                // Disable the submit button to prevent multiple submissions
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-                formMessage.style.display = 'none';
+                    // Disable the submit button to prevent multiple submissions
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    formMessage.style.display = 'none';
 
-                // Submit the form data using Fetch API
-                fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            // Success message
-                            formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
-                            formMessage.style.color = '#fff';
-                            form.reset();
-                        } else {
-                            throw new Error('Network response was not ok');
+                    // Submit the form data using Fetch API
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
                         }
                     })
-                    .catch(error => {
-                        // Error message
-                        formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
-                        formMessage.style.color = '#ff410d';
-                        console.error('Error:', error);
-                    })
-                    .finally(() => {
-                        formMessage.style.display = 'block';
-                        submitButton.disabled = false;
-                        submitButton.textContent = 'SUBMIT';
+                        .then(response => {
+                            if (response.ok) {
+                                // Success message
+                                formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+                                formMessage.style.color = '#fff';
+                                form.reset();
+                            } else {
+                                throw new Error('Network response was not ok');
+                            }
+                        })
+                        .catch(error => {
+                            // Error message
+                            formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
+                            formMessage.style.color = '#ff410d';
+                            console.error('Error:', error);
+                        })
+                        .finally(() => {
+                            formMessage.style.display = 'block';
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'SUBMIT';
 
-                        // Scroll to the message
-                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    });
-            });
+                            // Scroll to the message
+                            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        });
+                });
             </script>
         </section>
     </div> <!-- End of main container -->
