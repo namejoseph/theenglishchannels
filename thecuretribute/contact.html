@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | The Cure Tribute</title>
+    <meta name="description" content="Page not found - The Cure Tribute by The English Channels">
+    <link rel="stylesheet" href="https://use.typekit.net/coy4inr.css">
+    <link rel="stylesheet" href="../assets/css/cure.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Futura:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicons/cure/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/cure/favicon.svg" />
+    <link rel="shortcut icon" href="../assets/images/favicons/cure/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/cure/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="The Cure Tribute" />
+    <link rel="manifest" href="../assets/images/favicons/cure/site.webmanifest" />
+</head>
+
+<body class="standalone-page">
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/thecuretribute/">
+                    <img src="../assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute Band">
+                </a>
+            </div>
+
+            <div class="nav-right" id="navRight">
+                <ul class="desktop-nav-links">
+                    <li><a href="/thecuretribute/#about">ABOUT</a></li>
+                    <li><a href="/thecuretribute/#shows">SHOWS</a></li>
+                    <li><a href="/thecuretribute/#videos">VIDEOS</a></li>
+                    <li><a href="/thecuretribute/#photos">PHOTOS</a></li>
+                    <li><a href="/thecuretribute/#contact">CONTACT</a></li>
+                </ul>
+                <div class="nav-socials">
+                    <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" class="social-icon"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" class="social-icon"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/englishchannels" aria-label="X (Twitter)" class="social-icon" target="_blank">
+                        <i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main container with repeating background -->
+    <div class="main-container">
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h1>Contact</h1>
+
+            <p class="contact-intro">Get in touch with the form below or email us directly at: <a href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a>.</p>
+
+            <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST"
+                enctype="multipart/form-data">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <br>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            <div id="form-message" style="display:none;margin-top:1em;"></div>
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const form = e.target;
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const formMessage = document.getElementById('form-message');
+
+                    // Disable the submit button to prevent multiple submissions
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    formMessage.style.display = 'none';
+
+                    // Submit the form data using Fetch API
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                // Success message
+                                formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+                                formMessage.style.color = '#fff';
+                                form.reset();
+                            } else {
+                                throw new Error('Network response was not ok');
+                            }
+                        })
+                        .catch(error => {
+                            // Error message
+                            formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
+                            formMessage.style.color = '#ff410d';
+                            console.error('Error:', error);
+                        })
+                        .finally(() => {
+                            formMessage.style.display = 'block';
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'SUBMIT';
+
+                            // Scroll to the message
+                            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        });
+                });
+            </script>
+        </section>
+    </div> <!-- End of main container -->
+
+    <!-- Footer with different background -->
+    <footer id="footer">
+        <div class="footer-logo-link">
+            <a href="/">
+                <img src="../assets/images/logos/tec-website-logo-icons.svg" alt="The English Channels">
+            </a>
+        </div>
+        <div class="footer-copyright">© 2025 The English Channels - The Cure Tribute Band. All rights reserved.</div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="close-btn" id="closeBtn">&times;</div>
+        <div class="mobile-menu-logo">
+            <a href="/thecuretribute/">
+                <img src="../assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute Band">
+            </a>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/thecuretribute/#about">ABOUT</a></li>
+            <li><a href="/thecuretribute/#shows">SHOWS</a></li>
+            <li><a href="/thecuretribute/#videos">VIDEOS</a></li>
+            <li><a href="/thecuretribute/#photos">PHOTOS</a></li>
+            <li><a href="/thecuretribute/#contact">CONTACT</a></li>
+        </ul>
+        <div class="mobile-socials">
+            <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" class="social-icon"
+                target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" class="social-icon"
+                target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/englishchannels" aria-label="X (Twitter)" class="social-icon" target="_blank">
+                <i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
+
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Cure Tribute JavaScript -->
+    <script src="../assets/js/cure.js"></script>
+</body>
+
+</html>
