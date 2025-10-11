@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOWS | The English Channels</title>
+    <title>404 Not Found | The English Channels</title>
     <meta name="description" content="Performing the music of The Cure, Joy Division, New Order, Interpol, and more.">
     <meta name="keywords"
         content="tribute band, The Cure, Joy Division, New Order, Interpol, Austin, Texas, live music">
@@ -44,10 +44,82 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Replace with your Futura font source if available, e.g., Adobe Fonts -->
     <!-- Font Awesome 6.5.2 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .four-oh-four-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: #fff;
+        }
+        .four-oh-four-section h1 {
+            font-size: clamp(6rem, 20vw, 10rem);
+            margin: 0;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .four-oh-four-section p {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            margin: 10px 0 0;
+        }
+        .four-oh-four-section p a {
+            color: var(--orange);
+            text-decoration: underline;
+        }
+        .four-oh-four-section p a:hover {
+            color: var(--white);
+        }
 
+        .four-oh-four-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .logos-row, .buttons-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .logos-row {
+            padding: 20px 0;
+        }
+
+        .buttons-row {
+            padding: 10px 0 40px;
+        }
+
+        .logos-row .logo-wrapper,
+        .buttons-row .button-wrapper {
+            text-align: center;
+        }
+
+        .logos-row .tribute-logo-cure {
+            width: clamp(150px, 25vw, 200px);
+        }
+
+        .logos-row .tribute-logo-ylc {
+             width: clamp(250px, 40vw, 400px);
+        }
+
+        @media (max-width: 767px) {
+            .logos-row, .buttons-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .logos-row {
+                padding: 10px 0;
+            }
+            .buttons-row {
+                 padding: 10px 0 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -90,8 +162,6 @@
             </a>
         </nav>
         <div class="mobile-social-icons">
-            <!-- <a href="https://www.youtube.com/@TheEnglishChannels" aria-label="YouTube" target="_blank"><i
-                    class="fab fa-youtube"></i></a> -->
             <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
                     class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/theenglishchannels/" aria-label="Facebook" target="_blank"><i
@@ -101,62 +171,42 @@
         </div>
     </div>
 
-    <main class="site-main">
-        <section class="split-section cure-section">
-            <div class="section-content">
-                <img src="assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute"
-                    class="tribute-logo-cure"><br>
-                <a href="./thecuretribute" class="enter-site-btn">ENTER SITE</a>
-                <div class="show-list">
-                    <div class="show-item"><span class="date">SAT OCT 11</span><span class="venue">SD Roadhouse Antique Festival</span><span class="city">ROUND TOP, TX</span></div>
-                    <div class="show-item"><span class="date">FRI NOV 7</span><span class="venue">THE 13TH
-                            FLOOR</span><span class="city">AUSTIN, TX</span></div>
-                    <div class="show-item"><span class="date">THU MAR 26</span><span class="venue">RAH RAH
-                            ROOM</span><span class="city">SAN ANTONIO, TX</span></div>
-                    <div class="show-item"><span class="date">FRI MAR 27</span><span class="venue">HOUSE OF
-                            ROCK</span><span class="city">CORPUS CHRISTI, TX</span></div>
-                    <div class="show-item"><span class="date">SAT MAR 28</span><span class="venue">THE FLYING
-                            WALRUS</span><span class="city">MCALLEN, TX</span></div>
-                    <div class="show-item"><span class="date">SUN MAR 29</span><span class="venue">CLANCY BAR</span><span
-                            class="city">SOUTH PADRE ISLAND, TX</span></div>
-                </div>
-            </div>
+    <main class="site-main four-oh-four-main">
+        <section class="four-oh-four-section">
+            <h1>404</h1>
+            <p>PAGE NOT FOUND. <a href="./">RETURN TO HOME</a>.</p>
         </section>
-        <section class="split-section ylc-section">
-            <div class="section-content">
-                <img src="assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control"
-                    class="tribute-logo-ylc"><br>
-                <a href="./youvelostcontrol" class="enter-site-btn">ENTER SITE</a>
-                <div class="show-list">
-                    <div class="show-item"><span class="date">FRI NOV 7</span><span class="venue">THE 13TH
-                            FLOOR</span><span class="city">AUSTIN, TX</span></div>
-                    <div class="show-item"><span class="date">THU MAR 26</span><span class="venue">RAH RAH
-                            ROOM</span><span class="city">SAN ANTONIO, TX</span></div>
-                    <div class="show-item"><span class="date">FRI MAR 27</span><span class="venue">HOUSE OF
-                            ROCK</span><span class="city">CORPUS CHRISTI, TX</span></div>
-                    <div class="show-item"><span class="date">SAT MAR 28</span><span class="venue">THE FLYING
-                            WALRUS</span><span class="city">MCALLEN, TX</span></div>
-                    <div class="show-item"><span class="date">SUN MAR 29</span><span class="venue">CLANCY BAR</span><span
-                            class="city">SOUTH PADRE ISLAND, TX</span></div>
 
-                </div>
+        <div class="logos-row">
+            <div class="logo-wrapper">
+                 <img src="assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute" class="tribute-logo-cure">
             </div>
-        </section>
+            <div class="logo-wrapper">
+                <img src="assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control" class="tribute-logo-ylc">
+            </div>
+        </div>
+
+        <div class="buttons-row">
+            <div class="button-wrapper">
+                <a href="./thecuretribute" class="enter-site-btn">ENTER SITE</a>
+            </div>
+            <div class="button-wrapper">
+                <a href="./youvelostcontrol" class="enter-site-btn">ENTER SITE</a>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer-main">
         <div class="footer-fine-print">
             <span>THE ENGLISH CHANNELS ©2025. ALL RIGHTS RESERVED.</span><br>
-            <span>CONTACT: <a href="mailto:booking@theenglishchannels.com"
-                    class="email-link">booking@theenglishchannels.com</a></span>
+            <span>CONTACT: <a href="mailto:eventsproductionsbooking@gmail.com"
+                    class="email-link">eventsproductionsbooking@gmail.com</a></span>
         </div>
         <div class="footer-logo">
             <img src="assets/images/logos/tec-website-logo-circles.svg" alt="The English Channels"
                 class="footer-logo-img">
         </div>
         <div class="footer-social-icons">
-            <!--<a href="https://www.youtube.com/@TheEnglishChannels" aria-label="YouTube" target="_blank"><i
-                    class="fab fa-youtube"></i></a>-->
             <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
                     class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i
