@@ -574,3 +574,17 @@ a:hover {
   width: 800px;
   height: auto;
 }
+
+.spacer-lg {
+  min-height: 5rem;
+  height: auto;
+}
+
+#form-message {
+  display: none;
+  margin-top: 1em;
+}
+
+.footer-copyright {
+  margin-bottom: 0.6rem;
+}

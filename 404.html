@@ -46,80 +46,6 @@
 
     <!-- Font Awesome 6.5.2 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        .four-oh-four-section {
-            text-align: center;
-            padding: 40px 20px 20px;
-            color: #fff;
-        }
-        .four-oh-four-section h1 {
-            font-size: clamp(6rem, 20vw, 10rem);
-            margin: 0;
-            font-weight: bold;
-            line-height: 1;
-        }
-        .four-oh-four-section p {
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            margin: 10px 0 0;
-        }
-        .four-oh-four-section p a {
-            color: var(--orange);
-            text-decoration: underline;
-        }
-        .four-oh-four-section p a:hover {
-            color: var(--white);
-        }
-
-        .four-oh-four-main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .logos-row, .buttons-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
-        }
-
-        .logos-row {
-            padding: 20px 0;
-        }
-
-        .buttons-row {
-            padding: 10px 0 40px;
-        }
-
-        .logos-row .logo-wrapper,
-        .buttons-row .button-wrapper {
-            text-align: center;
-        }
-
-        .logos-row .tribute-logo-cure {
-            width: clamp(150px, 25vw, 200px);
-        }
-
-        .logos-row .tribute-logo-ylc {
-             width: clamp(250px, 40vw, 400px);
-        }
-
-        @media (max-width: 767px) {
-            .logos-row, .buttons-row {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .logos-row {
-                padding: 10px 0;
-            }
-            .buttons-row {
-                 padding: 10px 0 30px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -177,21 +103,22 @@
             <p>PAGE NOT FOUND. <a href="./">RETURN TO HOME</a>.</p>
         </section>
 
-        <div class="logos-row">
-            <div class="logo-wrapper">
-                 <img src="assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute" class="tribute-logo-cure">
+        <div class="tribute-bands-container">
+            <div class="tribute-band-column">
+                <div class="logo-wrapper">
+                    <img src="assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute" class="tribute-logo-cure">
+                </div>
+                <div class="button-wrapper">
+                    <a href="./thecuretribute" class="enter-site-btn">ENTER SITE</a>
+                </div>
             </div>
-            <div class="logo-wrapper">
-                <img src="assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control" class="tribute-logo-ylc">
-            </div>
-        </div>
-
-        <div class="buttons-row">
-            <div class="button-wrapper">
-                <a href="./thecuretribute" class="enter-site-btn">ENTER SITE</a>
-            </div>
-            <div class="button-wrapper">
-                <a href="./youvelostcontrol" class="enter-site-btn">ENTER SITE</a>
+            <div class="tribute-band-column">
+                <div class="logo-wrapper">
+                    <img src="assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control" class="tribute-logo-ylc">
+                </div>
+                <div class="button-wrapper">
+                    <a href="./youvelostcontrol" class="enter-site-btn">ENTER SITE</a>
+                </div>
             </div>
         </div>
     </main>
@@ -199,8 +126,8 @@
     <footer class="site-footer-main">
         <div class="footer-fine-print">
             <span>THE ENGLISH CHANNELS ©2025. ALL RIGHTS RESERVED.</span><br>
-            <span>CONTACT: <a href="mailto:eventsproductionsbooking@gmail.com"
-                    class="email-link">eventsproductionsbooking@gmail.com</a></span>
+            <span>CONTACT: <a href="mailto:booking@theenglishchannels.com"
+                    class="email-link">booking@theenglishchannels.com</a></span>
         </div>
         <div class="footer-logo">
             <img src="assets/images/logos/tec-website-logo-circles.svg" alt="The English Channels"

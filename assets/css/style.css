@@ -676,3 +676,95 @@ img {
         width: 100%;
     }
 }
+
+/* --- 404 Page --- */
+.four-oh-four-section {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: #fff;
+}
+
+.four-oh-four-section h1 {
+    font-size: clamp(6rem, 20vw, 10rem);
+    margin: 0;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.four-oh-four-section p {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin: 10px 0 0;
+}
+
+.four-oh-four-section p a {
+    color: var(--orange);
+    text-decoration: underline;
+}
+
+.four-oh-four-section p a:hover {
+    color: var(--white);
+}
+
+.four-oh-four-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tribute-bands-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    width: 100%;
+    padding: 20px 0 40px;
+}
+
+.tribute-band-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    /* Adjust height as needed */
+    text-align: center;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+
+.four-oh-four-main .tribute-logo-cure {
+    width: clamp(150px, 25vw, 200px);
+}
+
+.four-oh-four-main .tribute-logo-ylc {
+    width: clamp(250px, 40vw, 400px);
+}
+
+@media (max-width: 767px) {
+    .tribute-bands-container {
+        flex-direction: column;
+        align-items: center;
+        /* Center columns on mobile */
+        gap: 30px;
+        padding: 10px 0 30px;
+    }
+
+    .tribute-band-column {
+        gap: 15px;
+    }
+
+    .tribute-band-column:first-child {
+        padding-top: 20px;
+        /* Add padding above Cure logo */
+    }
+}
