@@ -848,6 +848,13 @@ textarea:focus {
     gap: 1.5rem;
 }
 
+/* Home-temp layout: make footer match top band background */
+#footer.cure-bottom {
+    background: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center !important;
+    background-size: cover !important;
+    padding: 0.75rem 2rem !important;
+}
+
 #footer p {
     margin: 0;
     font-size: 1rem;
@@ -880,6 +887,8 @@ textarea:focus {
 /* Simple three-band Cure layout (home-temp.html) */
 .cure-layout {
     height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -889,8 +898,8 @@ header.cure-top {
 }
 
 .cure-top {
-    min-height: 20vh;
-    flex: 0 0 20vh;
+    min-height: 15vh;
+    flex: 0 0 15vh;
     background-image: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg');
     background-size: cover;
     background-position: center;
@@ -902,7 +911,7 @@ header.cure-top {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.75rem 2rem;
+    padding: 0.15rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -941,7 +950,7 @@ header.cure-top {
 }
 
 .cure-middle {
-    flex: 0 0 65vh;
+    flex: 0 0 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -955,13 +964,13 @@ header.cure-top {
     background-image: url('../images/photos/cure/tec-website-photo-cure1.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
 
 .cure-bottom {
-    flex: 0 0 15vh;
-    background: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center;
-    background-size: cover;
+    flex: 0 0 10vh;
+    background: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center !important;
+    background-size: cover !important;
     display: flex;
     align-items: center;
 }
@@ -970,44 +979,171 @@ header.cure-top {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.75rem 2rem;
+    padding: 0.1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Futura', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
 }
 
 .cure-bottom-left a {
     color: #fff;
+    transition: color 0.3s ease;
+}
+
+.cure-bottom-left a:hover {
+    color: var(--fuschia);
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    margin: 0 auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger:hover span {
+    background-color: var(--fuschia);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
     .cure-top-inner {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 1.5rem 1rem 1.5rem;
+        gap: 2rem;
+        position: relative;
+        width: 100%;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 1rem;
+        position: static;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto !important;
+        position: relative !important;
+        float: none !important;
     }
 
     .cure-top-right {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat center;
+        background-size: cover;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        z-index: 1000;
+        padding: 2rem;
+    }
+
+    .cure-top-right.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .cure-top .menu-nav {
-        text-align: left;
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .cure-top .menu-nav a {
+        margin: 0.75rem 0;
+        display: block;
+    }
+
+    .cure-top .header-socials {
+        gap: 1.5rem;
+    }
+
+    .cure-top .header-socials .social-icon {
+        font-size: 1.8rem;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    .cure-top {
+        flex: 0 0 25vh;
+        min-height: 25vh;
     }
 
     .cure-middle {
         flex: 0 0 60vh;
     }
 
+    .cure-bottom {
+        flex: 0 0 15vh;
+        min-height: 15vh;
+        align-items: center;
+        display: flex;
+    }
+
     .cure-bottom-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        width: 100%;
+    }
+
+    .cure-bottom-left,
+    .cure-bottom-right {
+        font-size: 0.65rem !important;
+        line-height: 1.4 !important;
+        width: 100%;
     }
 }
 
