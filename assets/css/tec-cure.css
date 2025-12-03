@@ -11,6 +11,7 @@
     --fuschia: #c70864;
     --purple: #800080;
     --text-color: #ffffff;
+    --text-gray: #bbb;
     --bg-dark: #0a0a0a;
     --bg-transparent: rgba(0, 0, 0, 0.7);
     --transition: all 0.3s ease;
@@ -549,7 +550,7 @@ header {
 
 /* About Section */
 #about {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
@@ -560,7 +561,7 @@ header {
     font-family: 'Futura', sans-serif;
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #fff;
+    color: var(--text-gray);
     text-align: center;
     max-width: 800px;
     margin-left: auto;
@@ -570,19 +571,19 @@ header {
 
 /* Video Section */
 #video {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     text-align: center;
 }
 
 /* Photos Section */
 #photos {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     text-align: center;
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 80px 20px;
+    padding: 2rem 2rem;
     text-align: center;
     color: white;
 }
@@ -708,7 +709,7 @@ textarea:focus {
 
 /* Shows Section */
 #shows {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -837,7 +838,7 @@ textarea:focus {
 #footer {
     background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat top center;
     background-size: cover;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     text-align: center;
     color: #fff;
     font-family: 'Futura', sans-serif;
@@ -973,27 +974,37 @@ header.cure-top {
     background-size: cover !important;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.cure-bottom-inner {
+#footer .cure-bottom-inner {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0.1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
     font-family: 'Futura', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
+    color: var(--text-gray);
 }
 
-.cure-bottom-left a {
-    color: #fff;
-    transition: color 0.3s ease;
+#footer .cure-bottom-inner p {
+    margin: 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: inherit;
+    text-align: center;
+    max-width: 100%;
 }
 
-.cure-bottom-left a:hover {
+#footer .cure-bottom-inner a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+#footer .cure-bottom-inner a:hover {
     color: var(--fuschia);
 }
 
@@ -1131,18 +1142,7 @@ header.cure-top {
     }
 
     .cure-bottom-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.5rem;
         padding: 1rem 1.5rem;
-        width: 100%;
-    }
-
-    .cure-bottom-left,
-    .cure-bottom-right {
-        font-size: 0.65rem !important;
-        line-height: 1.4 !important;
         width: 100%;
     }
 }
@@ -1580,7 +1580,7 @@ html {
 /* Video Section Styles */
 #videos {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
 }
 
 .videos-grid {
@@ -1917,5 +1917,134 @@ body.standalone-page #footer {
 
     .error-section {
         padding: 3rem 1.5rem;
+    }
+}
+
+/* Scrolling Layout Styles (for temp-about.html and other pages) */
+.cure-scrolling-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #000;
+}
+
+.cure-header {
+    /* Background removed to show outer container bg */
+    background: transparent;
+    min-height: 15vh;
+    height: 15vh;
+    flex: 0 0 15vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+/* Match .cure-top .logo-container */
+.cure-header .logo-container {
+    max-width: 260px;
+    position: static;
+}
+
+/* Match .cure-top .menu-nav */
+.cure-header .menu-nav {
+    font-family: "balboa-plus-fill", sans-serif;
+    font-size: 1.2rem;
+    position: static;
+}
+
+.cure-header .menu-nav a {
+    margin: 0 0.5rem;
+}
+
+/* Match .cure-top .header-socials */
+.cure-header .header-socials {
+    display: flex;
+    gap: 1rem;
+    position: static;
+}
+
+.cure-header .header-socials .social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.cure-header .header-socials .social-icon:hover {
+    color: var(--fuschia);
+}
+
+.cure-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 2rem;
+    background-color: transparent; /* Transparent to show outer bg */
+}
+
+.cure-footer {
+    /* Background removed to show outer container bg */
+    background: transparent;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure footer inner styling works in this context */
+.cure-footer .cure-bottom-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.1rem 2rem;
+    text-align: center;
+    font-family: 'Futura', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--text-gray);
+}
+
+.cure-footer .cure-bottom-inner p {
+    margin: 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: inherit;
+    text-align: center;
+    max-width: 100%;
+}
+
+.cure-footer .cure-bottom-inner a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.cure-footer .cure-bottom-inner a:hover {
+    color: var(--fuschia);
+}
+
+/* Responsive adjustments for scrolling layout header */
+@media (max-width: 768px) {
+    .cure-header .cure-top-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .cure-header .logo-container {
+        position: static;
+        margin: 0 auto;
+    }
+
+    .cure-header .menu-nav {
+        text-align: center;
     }
 }
