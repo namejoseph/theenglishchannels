@@ -1089,7 +1089,7 @@ header.cure-top {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -1102,22 +1102,44 @@ header.cure-top {
         visibility: visible;
     }
 
-    .cure-top .menu-nav {
+    .mobile-menu-logo {
+        display: none;
+    }
+
+    .cure-top-right .mobile-menu-logo {
+        display: block;
+        width: 300px;
+        margin: 10rem auto 0;
+        flex-shrink: 0;
+    }
+
+    .cure-top-right .mobile-menu-logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .cure-top .menu-nav,
+    .cure-header .menu-nav {
         flex-direction: column;
         text-align: center;
         font-size: 1.5rem;
+        flex-shrink: 0;
     }
 
-    .cure-top .menu-nav a {
+    .cure-top .menu-nav a,
+    .cure-header .menu-nav a {
         margin: 0.75rem 0;
         display: block;
     }
 
-    .cure-top .header-socials {
+    .cure-top .header-socials,
+    .cure-header .header-socials {
         gap: 1.5rem;
+        flex-shrink: 0;
     }
 
-    .cure-top .header-socials .social-icon {
+    .cure-top .header-socials .social-icon,
+    .cure-header .header-socials .social-icon {
         font-size: 1.8rem;
     }
 
@@ -2031,13 +2053,7 @@ body.standalone-page #footer {
 
 /* Responsive adjustments for scrolling layout header */
 @media (max-width: 768px) {
-    .cure-header .cure-top-inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 1rem;
-    }
+    /* .cure-header .cure-top-inner inherits from global .cure-top-inner style */
     
     .cure-header .logo-container {
         position: static;
