@@ -106,4 +106,12 @@
         // Close menu when clicking a link
         document.querySelectorAll('.menu-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.hamburger').classList.remove('act
+                document.querySelector('.hamburger').classList.remove('active');
+                document.querySelector('.cure-top-right').classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    </script>
+</body>
+
+</html>
