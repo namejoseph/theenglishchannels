@@ -127,7 +127,7 @@ header {
 }
 
 .show-flyers {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 2rem;
 }
@@ -194,7 +194,7 @@ header {
 }
 
 /* Center nav menu on mobile */
-@media (max-width: 800px) {
+@media (max-width: 992px) {
     .logo-container {
         position: relative;
         left: 0;
@@ -373,7 +373,7 @@ header {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .header-illustration {
         width: 100%;
         max-width: 100%;
@@ -692,7 +692,7 @@ textarea:focus {
 }
 
 /* Responsive adjustments for contact form */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .input-row {
         flex-direction: column;
         gap: 0;
@@ -793,7 +793,7 @@ textarea:focus {
 
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .shows-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -930,6 +930,21 @@ header.cure-top {
     max-width: 260px;
 }
 
+/* Logo hover effect */
+.logo-container a img,
+.cure-top .logo-container a img,
+.cure-header .logo-container a img,
+.mobile-menu-logo a img {
+    transition: opacity 0.3s ease;
+}
+
+.logo-container a:hover img[src*="tec-cure-logo.svg"],
+.cure-top .logo-container a:hover img[src*="tec-cure-logo.svg"],
+.cure-header .logo-container a:hover img[src*="tec-cure-logo.svg"],
+.mobile-menu-logo a:hover img[src*="tec-cure-logo.svg"] {
+    content: url('../images/logos/tec-cure-logo-hover.svg');
+}
+
 .cure-top-right {
     display: flex;
     align-items: center;
@@ -1048,13 +1063,13 @@ header.cure-top {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .cure-top-inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 3rem 1.5rem 1rem 1.5rem;
+        padding: 6rem 1.5rem 1rem 1.5rem;
         gap: 2rem;
         position: relative;
         width: 100%;
@@ -1152,6 +1167,12 @@ header.cure-top {
         min-height: 25vh;
     }
 
+    /* Specific fix for scrolling layout header height on mobile */
+    .cure-scrolling-layout .cure-top {
+        flex: 0 0 18vh;
+        min-height: 18vh;
+    }
+
     .cure-middle {
         flex: 0 0 60vh;
     }
@@ -1169,6 +1190,22 @@ header.cure-top {
     }
 }
 
+/* Mobile footer adjustments - separate from navigation breakpoint */
+@media (max-width: 768px) {
+    .bullet-separator {
+        display: none;
+    }
+    
+    .footer-links a {
+        display: block;
+    }
+    
+    .reserved-text {
+        display: block;
+        margin-top: 0;
+    }
+}
+
 .video-placeholder {
     max-width: 800px;
     margin: 2rem auto 0;
@@ -1178,7 +1215,7 @@ header.cure-top {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 
     #about,
     #video {
@@ -1302,7 +1339,7 @@ header.cure-top {
 }
 
 /* Mobile: Force 2 columns minimum */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -1517,7 +1554,7 @@ header.cure-top {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .main-nav ul {
         flex-direction: column;
         align-items: center;
@@ -1643,7 +1680,7 @@ html {
 }
 
 /* Mobile responsiveness for videos */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .videos-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1659,7 +1696,7 @@ html {
 }
 
 .stage-plot img {
-    max-width: 80%;
+    max-width: 100%;
     width: 800px;
     height: auto;
 }
@@ -1839,7 +1876,7 @@ body.standalone-page #footer {
     font-family: Arial, sans-serif;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 992px) {
     .nav-right {
         display: none;
     }
@@ -1924,7 +1961,7 @@ body.standalone-page #footer {
     background-color: #c70864;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .error-code {
         font-size: 5rem;
     }
@@ -2052,7 +2089,7 @@ body.standalone-page #footer {
 }
 
 /* Responsive adjustments for scrolling layout header */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     /* .cure-header .cure-top-inner inherits from global .cure-top-inner style */
     
     .cure-header .logo-container {
