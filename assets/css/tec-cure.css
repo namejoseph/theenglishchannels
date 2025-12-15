@@ -1070,6 +1070,11 @@ header.cure-top {
     transform: translateY(-9px) rotate(-45deg);
 }
 
+/* Hide mobile menu close button on desktop */
+.mobile-menu-close {
+    display: none !important;
+}
+
 @media (max-width: 992px) {
     .cure-top-inner {
         display: flex;
@@ -1144,7 +1149,7 @@ header.cure-top {
     }
 
     .cure-top-right.active .mobile-menu-close {
-        display: flex;
+        display: flex !important;
     }
 
     .mobile-menu-close:hover {
