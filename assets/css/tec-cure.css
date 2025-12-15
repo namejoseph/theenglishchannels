@@ -1108,20 +1108,47 @@ header.cure-top {
         height: 100vh;
         background: url('../../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') no-repeat center;
         background-size: cover;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.5s ease, visibility 0.5s ease;
         z-index: 1000;
-        padding: 2rem;
+        padding: 5vh 5vw;
+        overflow: hidden;
     }
 
     .cure-top-right.active {
         opacity: 1;
         visibility: visible;
+    }
+
+    .mobile-menu-close {
+        display: none;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 3rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.3s ease;
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+
+    .cure-top-right.active .mobile-menu-close {
+        display: flex;
+    }
+
+    .mobile-menu-close:hover {
+        color: var(--fuschia);
     }
 
     .mobile-menu-logo {
@@ -1130,8 +1157,8 @@ header.cure-top {
 
     .cure-top-right .mobile-menu-logo {
         display: block;
-        width: 300px;
-        margin: 10rem auto 0;
+        width: min(60vw, 280px);
+        margin-bottom: 4vh;
         flex-shrink: 0;
     }
 
@@ -1142,27 +1169,32 @@ header.cure-top {
 
     .cure-top .menu-nav,
     .cure-header .menu-nav {
+        display: flex;
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
         flex-shrink: 0;
+        margin-bottom: 4vh;
     }
 
     .cure-top .menu-nav a,
     .cure-header .menu-nav a {
-        margin: 0.75rem 0;
+        margin: 1vh 0;
         display: block;
+        white-space: nowrap;
     }
 
     .cure-top .header-socials,
     .cure-header .header-socials {
-        gap: 1.5rem;
+        display: flex;
+        gap: clamp(1rem, 3vw, 1.5rem);
         flex-shrink: 0;
     }
 
     .cure-top .header-socials .social-icon,
     .cure-header .header-socials .social-icon {
-        font-size: 1.8rem;
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
     }
 
     body.no-scroll {
