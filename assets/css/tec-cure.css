@@ -133,8 +133,15 @@ header {
 }
 
 .show-flyers img {
+    width: 60%;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 768px) {
+    .show-flyers img {
     width: 100%;
     max-width: 1200px;
+}
 }
 
 .logo-container {
