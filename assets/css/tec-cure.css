@@ -201,7 +201,7 @@ header {
 }
 
 /* Center nav menu on mobile */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .logo-container {
         position: relative;
         left: 0;
@@ -380,7 +380,7 @@ header {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .header-illustration {
         width: 100%;
         max-width: 100%;
@@ -699,7 +699,7 @@ textarea:focus {
 }
 
 /* Responsive adjustments for contact form */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .input-row {
         flex-direction: column;
         gap: 0;
@@ -800,7 +800,7 @@ textarea:focus {
 
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .shows-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -922,8 +922,29 @@ header.cure-top {
     padding: 0.15rem 2rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
+}
+
+.cure-top-centered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.cure-top .menu-nav {
+    position: static;
+    text-align: center;
+    display: flex;
+}
+
+.cure-top .header-socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    position: static;
 }
 
 /* Override old absolute positioning in this layout */
@@ -980,14 +1001,50 @@ header.cure-top {
     background-color: #000;
 }
 
-.cure-middle-logo {
+.cure-middle-content {
     width: 100%;
-    max-width: 1200px;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cure-animated-logo {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 0 0 2rem;
+}
+
+.cure-animated-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+}
+
+/* Text above logo removed */
+
+.cure-middle-photo {
+    flex: 0 0 60%;
     background-image: url('../images/photos/cure/tec-website-photo-cure1.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
+    position: relative;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%);
 }
 
 .cure-bottom {
@@ -1075,34 +1132,84 @@ header.cure-top {
     display: none !important;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .cure-top-inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 6rem 1.5rem 1.5rem 1.5rem;
-        gap: 2rem;
-        position: relative;
-        width: 100%;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-top: 1rem;
+        padding: 0;
+        gap: 0;
         position: static;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .mobile-only {
+        display: block;
+    }
+    
+    .mobile-menu-toggle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        z-index: 99;
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
+    
+    .cure-top .hamburger {
+        display: flex;
+    }
+    
+    .cure-top-centered {
+        display: none;
+    }
+    
+    .cure-top-centered.active {
+        display: flex;
+    }
+    
+    .cure-middle-content {
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+    
+    .cure-animated-logo {
+        flex: 0 0 40%;
+        padding: 1.5rem;
+        align-items: center;
+    }
+    
+    .cure-animated-logo img {
+        max-height: 30vh;
+    }
+    
+    /* Mobile text above logo removed */
+    
+    .cure-middle-photo {
+        flex: 0 0 60%;
+        background-position: center top;
+    }
+    
+    .gradient-overlay {
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.5) 100%);
     }
 
     .hamburger {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin: 0 auto !important;
+        margin: 0 !important;
         position: relative !important;
         float: none !important;
+        bottom: auto !important;
+        right: auto !important;
+        top: auto !important;
+        left: auto !important;
     }
 
     .cure-top-right {
@@ -1235,7 +1342,7 @@ header.cure-top {
 }
 
 /* Mobile footer adjustments - separate from navigation breakpoint */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .bullet-separator {
         display: none;
     }
@@ -1259,7 +1366,7 @@ header.cure-top {
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
 
     #about,
     #video {
@@ -1383,7 +1490,7 @@ header.cure-top {
 }
 
 /* Mobile: Force 2 columns minimum */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -1575,7 +1682,7 @@ header.cure-top {
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     h1 {
         font-size: 2.8rem;
     }
@@ -1598,7 +1705,7 @@ header.cure-top {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .main-nav ul {
         flex-direction: column;
         align-items: center;
@@ -1724,7 +1831,7 @@ html {
 }
 
 /* Mobile responsiveness for videos */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .videos-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1920,7 +2027,7 @@ body.standalone-page #footer {
     font-family: Arial, sans-serif;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .nav-right {
         display: none;
     }
@@ -2005,7 +2112,7 @@ body.standalone-page #footer {
     background-color: #c70864;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     .error-code {
         font-size: 5rem;
     }
@@ -2133,7 +2240,7 @@ body.standalone-page #footer {
 }
 
 /* Responsive adjustments for scrolling layout header */
-@media (max-width: 992px) {
+@media (max-width: 700px) {
     /* .cure-header .cure-top-inner inherits from global .cure-top-inner style */
     
     .cure-header .logo-container {
