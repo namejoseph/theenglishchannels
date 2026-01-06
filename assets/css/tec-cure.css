@@ -1,5 +1,42 @@
 /* cure.css - Main styles for The Cure Tribute Band website */
 
+/* HOME PAGE HAMBURGER - Fresh start, simple centering */
+.home-hamburger {
+    display: none;
+    position: absolute !important;
+    left: 50% !important;
+    top: 60px !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 999;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 !important;
+}
+
+.home-hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.home-hamburger:hover span {
+    background-color: var(--fuschia);
+}
+
+@media (max-width: 700px) {
+    .home-hamburger {
+        display: flex;
+    }
+}
+
 /* Base Styles */
 * {
     margin: 0;
@@ -910,7 +947,7 @@ header.cure-top {
     flex: 0 0 15vh;
     background-image: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     display: flex;
     align-items: center;
 }
@@ -1044,11 +1081,12 @@ header.cure-top {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0) 20%), linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.3) 90%, #000000 100%);
 }
 
 .cure-bottom {
     flex: 0 0 10vh;
+    flex: 0 0 10dvh;
     background: url('../../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center !important;
     background-size: cover !important;
     display: flex;
@@ -1132,7 +1170,55 @@ header.cure-top {
     display: none !important;
 }
 
+@media (max-width: 1000px) {
+    .cure-middle-content {
+        flex-direction: column-reverse;
+        height: 100%;
+    }
+
+    .cure-top-inner {
+        gap: 1.25rem;
+    }
+
+    .cure-top-centered {
+        gap: 1.25rem;
+    }
+
+    .cure-top .menu-nav {
+        font-size: 1rem;
+    }
+
+    .cure-top .menu-nav a {
+        margin: 0 0.35rem;
+    }
+
+    .cure-top .header-socials {
+        gap: 0.75rem;
+    }
+
+    .cure-animated-logo {
+        flex: 0 0 40%;
+        padding: 1.5rem;
+        align-items: center;
+    }
+
+    .cure-animated-logo img {
+        max-height: 25.5vh;
+        max-width: 85%;
+    }
+
+    .cure-middle-photo {
+        flex: 0 0 60%;
+        background-position: center -50px;
+    }
+}
+
 @media (max-width: 700px) {
+    .cure-top {
+        align-items: stretch;
+        position: relative;
+    }
+
     .cure-top-inner {
         display: flex;
         flex-direction: column;
@@ -1150,15 +1236,19 @@ header.cure-top {
     }
     
     .mobile-menu-toggle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
         display: block;
         z-index: 99;
         margin: 0;
         width: auto;
         height: auto;
+        position: absolute;
+    }
+
+    .cure-scrolling-layout .mobile-menu-toggle {
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        left: auto;
     }
     
     .cure-top .hamburger {
@@ -1173,10 +1263,11 @@ header.cure-top {
         display: flex;
     }
     
-    .cure-middle-content {
+   .cure-middle-content {
         flex-direction: column-reverse;
         height: 100%;
     }
+
     
     .cure-animated-logo {
         flex: 0 0 40%;
@@ -1192,11 +1283,11 @@ header.cure-top {
     
     .cure-middle-photo {
         flex: 0 0 60%;
-        background-position: center top;
+        background-position: center -50px;
     }
     
     .gradient-overlay {
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.5) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 60%, #000000 100%);
     }
 
     .hamburger {
@@ -1316,6 +1407,7 @@ header.cure-top {
     .cure-top {
         flex: 0 0 25vh;
         min-height: 25vh;
+        position: relative;
     }
 
     /* Specific fix for scrolling layout header height on mobile */
