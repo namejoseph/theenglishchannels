@@ -1783,3 +1783,25 @@ body.standalone-page #footer {
         padding: 3rem 1.5rem;
     }
 }
+
+/* Gallery Section Specifics */
+.gallery-section h2 {
+    font-size: 1.5rem; /* Reduced from 2.5rem */
+    margin-top: 4rem; /* Add space between galleries */
+    margin-bottom: 1.5rem;
+}
+
+.gallery-section h2:first-of-type {
+    margin-top: 1rem; /* Less space for the first title */
+}
+
+@media (max-width: 768px) {
+    .gallery-section h2 {
+        font-size: 1.2rem;
+        margin-top: 3rem;
+    }
+    
+    .gallery-section h2:first-of-type {
+        margin-top: 1rem;
+    }
+}
