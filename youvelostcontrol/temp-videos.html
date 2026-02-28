@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOU'VE LOST CONTROL</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="YOU'VE LOST CONTROL">
+  <meta name="description"
+    content="You've Lost Control is Austin’s tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theenglishchannels.com/youvelostcontrol/">
+  <meta property="og:title" content="YOU'VE LOST CONTROL">
+  <meta property="og:description"
+    content="You've Lost Control is Austin’s tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave.">
+  <meta property="og:image"
+    content="../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg">
+  <meta property="og:image:secure_url"
+    content="../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://theenglishchannels.com/youvelostcontrol/">
+  <meta property="twitter:title" content="YOU'VE LOST CONTROL">
+  <meta property="twitter:description"
+    content="You've Lost Control is Austin’s tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave.">
+  <meta property="twitter:image"
+    content="../assets/images/photos/ylc/tec-we">
+
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://use.typekit.net/epe8njs.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/images/favicons/ylc/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicons/ylc/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/images/favicons/ylc/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/ylc/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="You've Lost Control" />
+  <link rel="manifest" href="../assets/images/favicons/ylc/site.webmanifest" />
+</head>
+
+<body>
+
+<style>
+  /* Reset */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { min-height: 100%; }
+  body { margin: 0; font-family: 'Futura', 'Futura PT', Arial, sans-serif; background: #000; color: #fff; }
+
+  :root{
+    --header-h: 84px;
+    --pad: clamp(16px, 2.5vw, 28px);
+    --pink: #ff7fcf;
+  }
+
+  /* Page layout */
+  body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  header{
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem var(--pad);
+  }
+
+  .header-top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-desktop{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .nav-desktop a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-desktop a:hover{ color: var(--pink); }
+
+  .header-socials{
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+  }
+  .header-socials a{
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .header-socials a:hover{ color: var(--pink); }
+
+  .header-logo{
+    text-align: center;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  .logo-ylc{
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+    max-height: 130px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .tagline{
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-family: "grand-central", serif;
+    font-style: normal;
+  }
+
+  /* ── Main ── */
+  main{
+    flex: 1;
+    background: url('../assets/images/backgrounds/tec-website-bg-ylc-bw.jpg') top center / cover no-repeat;
+    background-color: #000;
+    color: #fff;
+    padding: var(--pad);
+  }
+
+  .section{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .section h1{
+    font-size: 56px;
+    font-family: "grand-central", serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+
+  .videos-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .video-responsive{
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+  }
+  .video-responsive iframe{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .videos-grid p{
+    font-family: 'Futura', 'Futura PT', sans-serif;
+    font-size: 17.6px;
+    margin-top: 12px;
+    color: #eee;
+  }
+
+  .watch-more{
+    display: inline-block;
+    margin-top: 2rem;
+    background: #2f0b37;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Futura', 'Futura PT', Arial, sans-serif;
+    border: #fff 1px solid;
+    transition: background 0.2s;
+  }
+  .watch-more:hover{
+    background: #e05fae;
+    color: #fff;
+  }
+
+  @media (max-width: 768px){
+    .videos-grid{ grid-template-columns: 1fr; }
+    .section h1{ font-size: 40px; }
+  }
+
+  /* ── Footer ── */
+  .footer{
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 2rem 0 0.5rem 0;
+  }
+  .lyrics-container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .lyrics-text{
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+    white-space: pre-line;
+  }
+  .lyrics-credit{
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  .lyrics-container{
+    margin-bottom: 25px;
+  }
+  .footer-socials{
+    display: flex;
+    gap: 1.3rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .social-icon{
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .social-icon:hover{ color: var(--pink); }
+  .footer-links{
+    font-size: 11.52px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .footer-links a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-links a:hover{ color: var(--pink); }
+  .footer-copyright{
+    font-size: 11.52px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+  .footer-padding{
+    padding-bottom: 3rem;
+  }
+  .mobile-break{ display: none; }
+  .rights-break{ display: inline; }
+  @media (max-width: 860px){
+    .mobile-break{ display: block; }
+    .rights-break{ display: block; }
+  }
+
+  /* ── Hamburger / X button ── */
+  .menu-btn{
+    width: 56px;
+    height: 56px;
+    display: none;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+  }
+  .menu-btn:focus-visible{
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+  }
+  .icon-bars{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+  .icon-bars span{
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 220ms ease;
+    position: absolute;
+    transform-origin: center;
+  }
+  .icon-bars span:nth-child(1){ transform: translateY(-8px); }
+  .icon-bars span:nth-child(2){ transform: translateY(0); }
+  .icon-bars span:nth-child(3){ transform: translateY(8px); }
+  body.menu-open .icon-bars span:nth-child(1){ transform: rotate(45deg); }
+  body.menu-open .icon-bars span:nth-child(2){ transform: scaleX(0); }
+  body.menu-open .icon-bars span:nth-child(3){ transform: rotate(-45deg); }
+
+  /* ── Mobile menu overlay ── */
+  .menu-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.98);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1000ms ease;
+    display: grid;
+    grid-template-rows: var(--header-h) 1fr;
+  }
+  body.menu-open .menu-overlay{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .menu-header{
+    height: var(--header-h);
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--pad);
+  }
+  .menu-header .logo-ylc{
+    max-width: 200px;
+    max-height: 50px;
+  }
+  .menu-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
+    padding: var(--pad);
+    text-align: center;
+  }
+  .menu-links{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .menu-links a{
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Futura', 'Futura PT', sans-serif;
+    font-size: clamp(39px, 8vw, 72px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .menu-links a:hover{ color: var(--pink); text-decoration: none; }
+  .menu-social{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .menu-social a{
+    color: #fff;
+    font-size: 27px;
+    text-decoration: none;
+  }
+  .menu-social a:hover{ color: var(--pink); text-decoration: none; }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px){
+    header{
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 var(--pad);
+      height: var(--header-h);
+      align-items: center;
+    }
+    .header-top-bar{ display: none; }
+    .tagline{ display: none; }
+    .header-logo{ width: auto; margin: 0; line-height: 0; }
+    .logo-ylc{ max-width: 220px; max-height: 50px; }
+    .menu-btn{ display: inline-grid; place-items: center; }
+    .bullet-separator{ display: none; }
+    .mobile-break{ display: block; }
+    main{ padding: 2rem; }
+  }
+
+  body.menu-open{ overflow: hidden; }
+</style>
+
+  <!-- Normal site header -->
+  <header>
+    <div class="header-top-bar">
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="temp-about.html">About</a>
+        <a href="temp-shows.html">Shows</a>
+        <a href="temp-videos.html">Videos</a>
+        <a href="temp-photos.html">Photos</a>
+        <a href="temp-contact.html">Contact</a>
+      </nav>
+      <div class="header-socials">
+        <a href="https://www.instagram.com/lostcontrolatx/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/you.ve.lostcontrol" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/lostcontrolatx" aria-label="X (Twitter)" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="header-logo">
+      <a href="temp-home.html"><img src="../assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control – Joy Division / New Order Tribute" class="logo-ylc"></a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="icon-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-screen mobile menu overlay -->
+  <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="menu-header">
+      <a href="temp-home.html"><img src="../assets/images/logos/tec-website-logo-ylc-tagline.svg" alt="You've Lost Control – Joy Division / New Order Tribute" class="logo-ylc"></a>
+
+      <button class="menu-btn" id="closeBtn" aria-label="Close menu">
+        <span class="icon-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <div class="menu-inner">
+      <div class="menu-links">
+        <a href="temp-about.html" data-close>About</a>
+        <a href="temp-shows.html" data-close>Shows</a>
+        <a href="temp-videos.html" data-close>Videos</a>
+        <a href="temp-photos.html" data-close>Photos</a>
+        <a href="temp-contact.html" data-close>Contact</a>
+      </div>
+
+      <div class="menu-social" aria-label="Social links">
+        <a href="https://www.instagram.com/lostcontrolatx/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/you.ve.lostcontrol" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://x.com/lostcontrolatx" aria-label="X (Twitter)" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="videos" class="section">
+      <h1>Videos</h1>
+      <div class="videos-grid">
+        <div>
+          <div class="video-responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9Z_DjfdarDE?si=yYZ8XztXeeb3pjzG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p>Obstacle 1 (Interpol cover)</p>
+        </div>
+        <div>
+          <div class="video-responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/T7N-PXUbR78?si=33LrKz-82gEVB6lD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p>Lucretia My Reflection (The Sisters of Mercy cover)</p>
+        </div>
+        <div>
+          <div class="video-responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-AEtKqGMHjc?si=YewiHq4xk-XtspwX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p>I Wanna Be Adored (The Stone Roses cover)</p>
+        </div>
+        <div>
+          <div class="video-responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M9wjgBfbYYU?si=3vh4z8iu6cgoLfqf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p>Killing Moon (Echo & the Bunnymen cover)</p>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/playlist?list=PLme-5F1ntcIEm8LDckLa1ZgmyBjvzRgjw" target="_blank" class="watch-more">Watch More</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="lyrics-container">
+      <div class="lyrics-text" id="lyricsDisplay"></div>
+      <div class="lyrics-credit" id="lyricsCredit"></div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/lostcontrolatx/" aria-label="Instagram" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/you.ve.lostcontrol" aria-label="Facebook" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/lostcontrolatx" aria-label="X" class="social-icon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    </div>
+    <p class="footer-links"><a href="https://theenglishchannels.com">theenglishchannels.com</a><span class="mobile-break"></span> <span class="bullet-separator">&bull;</span> <a href="mailto:eventsproductionsbooking@gmail.com">eventsproductionsbooking@gmail.com</a></p>
+    <p class="footer-copyright">&copy; <span id="footerYear">2026</span> The English Channels - You've Lost Control. <span class="rights-break">All rights reserved.</span></p>
+    <div class="footer-padding"></div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('mobileMenu');
+
+    function setOpen(isOpen) {
+      body.classList.toggle('menu-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+
+    menuBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+
+    // Close on link click
+    overlay.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-close]');
+      if (link) setOpen(false);
+    });
+
+    // Optional: click outside the menu-inner closes
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOpen(false);
+    });
+
+    // Escape closes
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('menu-open')) setOpen(false);
+    });
+
+    // Auto-close if resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 861px)').matches) setOpen(false);
+    });
+
+    // Dynamic footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+  <script src="../assets/js/ylc.js"></script>
+</body>
+</html>
