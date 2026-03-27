@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Template — Full-Screen Mobile Menu</title>
+
+  <!-- Adobe Fonts (Balboa) -->
+  <link rel="stylesheet" href="https://use.typekit.net/coy4inr.css">
+
+  <!-- Font Awesome (social icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    :root {
+      --header-h: 84px;
+      --footer-h: 84px;
+      --pad: clamp(16px, 2.5vw, 28px);
+      --fuschia: #c70864;
+      --purple: #800080;
+    }
+
+    /* Page layout */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: var(--header-h);
+      background: black;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 var(--pad);
+    }
+
+    .logo-cure {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    a:hover .logo-cure {
+      content: url('../assets/images/logos/tec-cure-logo-hover.svg');
+    }
+
+    .header-socials {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .header-socials a {
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    .header-socials a:hover {
+      color: var(--fuschia);
+    }
+
+    main {
+      flex: 1;
+      background: #111 url('../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center center / cover;
+      color: #fff;
+      padding: var(--pad);
+    }
+
+    /* Video Section */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .section h1 {
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: 56px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 32px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .video-responsive {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .videos-grid p {
+      font-family: 'Futura', sans-serif;
+      font-size: 17.6px;
+      color: #fff;
+      text-align: center;
+      margin: 12px 0 24px;
+    }
+
+    @media (max-width: 768px) {
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section h1 {
+        font-size: 40px;
+      }
+    }
+
+    footer {
+      background: url('../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') center top / cover no-repeat;
+      color: #fff;
+      font-family: 'Futura', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      gap: 0.25rem;
+    }
+
+    .footer-links {
+      font-size: 11.52px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--fuschia);
+    }
+
+    .footer-copyright {
+      font-size: 11.52px;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* About section paragraph styling */
+    p {
+      font-family: 'Futura', sans-serif;
+      font-size: 19.2px;
+      line-height: 1.8;
+      color: #bbb;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 32px;
+      margin-bottom: 24px;
+    }
+
+    /* About section two-column layout */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about-text {
+      text-align: left;
+    }
+
+    .about-text p {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
+    }
+
+    main a {
+      color: var(--fuschia);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    main a:hover {
+      color: var(--purple);
+    }
+
+    /* Full-width image banner */
+    .about-image-banner {
+      width: 100%;
+      height: 400px;
+      background-image: url('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.15.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .press-quote {
+      max-width: 800px;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+    }
+
+    .press-quote p {
+      font-family: 'Futura', sans-serif;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .press-quote cite {
+      font-family: 'Futura', sans-serif;
+      font-size: 1.1rem;
+      font-style: normal;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 968px) {
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-text p {
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .about-image-banner {
+        height: 600px;
+      }
+    }
+
+    /* Header content */
+    .brand {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Desktop nav */
+    .nav-desktop {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-desktop a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: 19px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--fuschia);
+    }
+
+    /* Hamburger / X button (no border) */
+    .menu-btn {
+      width: 56px;
+      height: 56px;
+      display: none;
+      /* mobile only */
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+    }
+
+    .menu-btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .icon-bars {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .icon-bars span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 220ms ease;
+      position: absolute;
+      transform-origin: center;
+    }
+
+    .icon-bars span:nth-child(1) {
+      transform: translateY(-8px);
+    }
+
+    .icon-bars span:nth-child(2) {
+      transform: translateY(0);
+    }
+
+    .icon-bars span:nth-child(3) {
+      transform: translateY(8px);
+    }
+
+    /* Morph to X (no opacity property used) */
+    body.menu-open .icon-bars span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    body.menu-open .icon-bars span:nth-child(2) {
+      transform: scaleX(0);
+    }
+
+    body.menu-open .icon-bars span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    /* Full-screen mobile menu overlay
+       - Covers whole screen
+       - Grid: header row + remaining space row
+       - 1s fade-in */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: url('../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') center top / cover no-repeat;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 1000ms ease;
+
+      display: grid;
+      grid-template-rows: var(--header-h) 1fr;
+    }
+
+    body.menu-open .menu-overlay {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Overlay header (transparent so it doesn't look like a bar) */
+    .menu-header {
+      height: var(--header-h);
+      background: transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad);
+    }
+
+    /* Center links + icons in the space UNDER the header row */
+    .menu-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+      padding: var(--pad);
+      text-align: center;
+    }
+
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .menu-links a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: clamp(39px, 8vw, 72px);
+      text-transform: uppercase;
+    }
+
+    .menu-links a:hover {
+      color: var(--fuschia);
+      text-decoration: none;
+    }
+
+    .menu-social {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .menu-social a {
+      color: #fff;
+      font-size: 27px;
+      text-decoration: none;
+    }
+
+    .menu-social a:hover {
+      color: var(--fuschia);
+      text-decoration: none;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 860px) {
+      header {
+        justify-content: space-between;
+      }
+
+      .nav-desktop {
+        display: none;
+      }
+
+      header>.header-socials {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .bullet-separator {
+        display: none;
+      }
+
+      .mobile-break {
+        display: block;
+      }
+
+      main {
+        padding: 2rem;
+      }
+    }
+
+    /* Prevent background scroll when menu is open */
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    /* Demo labels */
+    .label {
+      font-size: clamp(24px, 4vw, 56px);
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Normal site header -->
+  <header>
+    <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band"
+        class="logo-cure"></a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="shows.html">Shows</a>
+      <a href="videos.html">Videos</a>
+      <a href="photos.html">Photos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-socials">
+      <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i
+          class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i
+          class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="icon-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-screen mobile menu overlay -->
+  <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="menu-header">
+      <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band"
+          class="logo-cure"></a>
+
+      <button class="menu-btn" id="closeBtn" aria-label="Close menu">
+        <span class="icon-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <div class="menu-inner">
+      <div class="menu-links">
+        <a href="about.html" data-close>About</a>
+        <a href="shows.html" data-close>Shows</a>
+        <a href="videos.html" data-close>Videos</a>
+        <a href="photos.html" data-close>Photos</a>
+        <a href="contact.html" data-close>Contact</a>
+      </div>
+
+      <div class="menu-social" aria-label="Social links">
+        <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i
+            class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <main class="cure-content">
+    <section id="about" class="section">
+      <h1>About</h1>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.5.jpg" alt="The Cure Tribute Band">
+        </div>
+        <div class="about-text">
+          <p><strong>The English Channels Cure Tribute</strong> is an Austin, TX-based band dedicated to celebrating the iconic music
+            of The Cure and Robert Smith. Performing songs from classic albums like <em>Disintegration</em>,
+            <em>Pornography</em>, and <em>The Head on the Door</em>, the band brings to life the sound and
+            atmosphere of The Cure's most beloved eras.
+          </p>
+          <p>The band has performed at venues across Texas, with dates in Austin, Dallas, San Antonio, and Houston, at venues such as 3TEN ACL Live, The 13th Floor, House of Rock, Elysium, Far Out Lounge, and more. Check the <a href="shows.html">SHOWS</a> page for upcoming dates and future tours.</p>
+        </div>
+      </div>
+      <p style="margin-top: 100px;">For all booking inquiries, please visit our <a href="contact.html">CONTACT</a> page or email us at <a href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a>.</p>
+    </section>
+  </main>
+
+  <section class="about-image-banner">
+    <div class="banner-overlay">
+      <blockquote class="press-quote">
+        <p>"An incredible tribute that captures the essence and atmosphere of The Cure's most iconic performances. A must-see for any fan."</p>
+        <cite>— Austin Chronicle</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-links"><a href="https://theenglishchannels.com">theenglishchannels.com</a> <span
+        class="bullet-separator">•</span> <a
+        href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a></p>
+    <p class="footer-copyright">© <span id="footerYear">2025</span> The English Channels - The Cure Tribute. <span
+        class="mobile-break"></span>All rights reserved.</p>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('mobileMenu');
+
+    function setOpen(isOpen) {
+      body.classList.toggle('menu-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+
+    menuBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+
+    // Close on link click
+    overlay.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-close]');
+      if (link) setOpen(false);
+    });
+
+    // Optional: click outside the menu-inner closes (clicking overlay background)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOpen(false);
+    });
+
+    // Escape closes
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('menu-open')) setOpen(false);
+    });
+
+    // Auto-close if resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 861px)').matches) setOpen(false);
+    });
+
+    // Dynamic footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

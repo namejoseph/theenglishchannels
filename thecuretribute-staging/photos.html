@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Template — Full-Screen Mobile Menu</title>
+
+  <!-- Adobe Fonts (Balboa) -->
+  <link rel="stylesheet" href="https://use.typekit.net/coy4inr.css">
+
+  <!-- Font Awesome (social icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    :root{
+      --header-h: 84px;
+      --footer-h: 84px;
+      --pad: clamp(16px, 2.5vw, 28px);
+      --fuschia: #c70864;
+    }
+
+    /* Page layout */
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header{
+      height: var(--header-h);
+      background: black;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 var(--pad);
+    }
+
+    .logo-cure{
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    a:hover .logo-cure{
+      content: url('../assets/images/logos/tec-cure-logo-hover.svg');
+    }
+
+    .header-socials{
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .header-socials a{
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .header-socials a:hover{ color: var(--fuschia); }
+
+    main{
+      flex: 1;
+      background: #111 url('../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center center / cover;
+      color: #fff;
+      padding: var(--pad);
+    }
+
+    /* Video Section */
+    .section{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .section h1{
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: 56px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 32px;
+    }
+
+    .videos-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .video-responsive{
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-responsive iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .videos-grid p{
+      font-family: 'Futura', sans-serif;
+      font-size: 17.6px;
+      color: #fff;
+      text-align: center;
+      margin: 12px 0 24px;
+    }
+
+    /* Gallery Section */
+    .section h2 {
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: 2rem;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .close-btn:hover {
+      color: var(--fuschia);
+    }
+
+    @media (max-width: 768px){
+      .videos-grid{
+        grid-template-columns: 1fr;
+      }
+      .section h1{
+        font-size: 40px;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+      }
+      .close-btn {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+      }
+    }
+
+    footer{
+      background: url('../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') center top / cover no-repeat;
+      color: #fff;
+      font-family: 'Futura', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      gap: 0.25rem;
+    }
+
+    .footer-links{
+      font-size: 11.52px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .footer-links a{
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-links a:hover{
+      color: var(--fuschia);
+    }
+
+    .footer-copyright{
+      font-size: 11.52px;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Header content */
+    .brand{
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Desktop nav */
+    .nav-desktop{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-desktop a{
+      color: #fff;
+      text-decoration: none;
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: 19px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .nav-desktop a:hover{ color: var(--fuschia); }
+
+    /* Hamburger / X button (no border) */
+    .menu-btn{
+      width: 56px;
+      height: 56px;
+      display: none; /* mobile only */
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+    }
+    .menu-btn:focus-visible{
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .icon-bars{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+    .icon-bars span{
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 220ms ease;
+      position: absolute;
+      transform-origin: center;
+    }
+    .icon-bars span:nth-child(1){ transform: translateY(-8px); }
+    .icon-bars span:nth-child(2){ transform: translateY(0); }
+    .icon-bars span:nth-child(3){ transform: translateY(8px); }
+
+    /* Morph to X (no opacity property used) */
+    body.menu-open .icon-bars span:nth-child(1){ transform: rotate(45deg); }
+    body.menu-open .icon-bars span:nth-child(2){ transform: scaleX(0); }
+    body.menu-open .icon-bars span:nth-child(3){ transform: rotate(-45deg); }
+
+    /* Full-screen mobile menu overlay
+       - Covers whole screen
+       - Grid: header row + remaining space row
+       - 1s fade-in */
+    .menu-overlay{
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: url('../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') center top / cover no-repeat;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 1000ms ease;
+
+      display: grid;
+      grid-template-rows: var(--header-h) 1fr;
+    }
+    body.menu-open .menu-overlay{
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Overlay header (transparent so it doesn't look like a bar) */
+    .menu-header{
+      height: var(--header-h);
+      background: transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad);
+    }
+
+    /* Center links + icons in the space UNDER the header row */
+    .menu-inner{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+      padding: var(--pad);
+      text-align: center;
+    }
+
+    .menu-links{
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .menu-links a{
+      color: #fff;
+      text-decoration: none;
+      font-family: 'balboa-plus-fill', sans-serif;
+      font-size: clamp(39px, 8vw, 72px);
+      text-transform: uppercase;
+    }
+    .menu-links a:hover{ color: var(--fuschia); text-decoration: none; }
+
+    .menu-social{
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .menu-social a{
+      color: #fff;
+      font-size: 27px;
+      text-decoration: none;
+    }
+    .menu-social a:hover{ color: var(--fuschia); text-decoration: none; }
+
+    /* Responsive rules */
+    @media (max-width: 860px){
+      header{ justify-content: space-between; }
+      .nav-desktop{ display: none; }
+      header > .header-socials{ display: none; }
+      .menu-btn{ display: inline-grid; place-items: center; }
+      .bullet-separator{ display: none; }
+      .mobile-break{ display: block; }
+      main{ padding: 2rem; }
+    }
+
+    /* Prevent background scroll when menu is open */
+    body.menu-open{
+      overflow: hidden;
+    }
+
+    /* Demo labels */
+    .label{
+      font-size: clamp(24px, 4vw, 56px);
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Normal site header -->
+  <header>
+    <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="shows.html">Shows</a>
+      <a href="videos.html">Videos</a>
+      <a href="photos.html">Photos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-socials">
+      <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="icon-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-screen mobile menu overlay -->
+  <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="menu-header">
+      <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+
+      <button class="menu-btn" id="closeBtn" aria-label="Close menu">
+        <span class="icon-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <div class="menu-inner">
+      <div class="menu-links">
+        <a href="about.html" data-close>About</a>
+        <a href="shows.html" data-close>Shows</a>
+        <a href="videos.html" data-close>Videos</a>
+        <a href="photos.html" data-close>Photos</a>
+        <a href="contact.html" data-close>Contact</a>
+      </div>
+
+      <div class="menu-social" aria-label="Social links">
+        <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <main class="cure-content">
+    <section id="photos" class="section gallery-section">
+      <h1>Photos</h1>
+
+      <h2>Live at 3TEN ACL LIVE 1/10/26</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.1.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.1-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.2.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.2-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.3.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.3-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.4.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.4-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.5.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.5-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.6.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.6-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.7.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.7-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.8.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.8-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.9.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.9-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.10.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.10-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.11.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.11-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.12.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.12-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.13.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.13-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.14.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.14-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.15.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.15-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.16.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.16-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.17.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.17-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.18.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.18-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.19.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.19-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.20.jpg')">
+          <img src="../assets/images/photos/cure/3tenacllive-260110/tec-cure-gallery2.20-thumbnail.jpg" alt="The Cure Tribute at 3TEN ACL LIVE">
+        </div>
+      </div>
+
+      <h2>The Cure Tribute</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure1.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure1-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure2.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure2-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure3.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure3-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure4.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure4-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure5.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure5-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure6.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure6-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure7.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure7-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure8.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure8-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure9.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure9-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/cure/band/tec-website-photo-cure10.jpg')">
+          <img src="../assets/images/photos/cure/band/tec-website-photo-cure10-thumbnail.jpg" alt="The Cure Tribute performance">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" onclick="event.stopPropagation()">
+  </div>
+
+  <footer>
+    <p class="footer-links"><a href="https://theenglishchannels.com">theenglishchannels.com</a> <span class="bullet-separator">•</span> <a href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a></p>
+    <p class="footer-copyright">© <span id="footerYear">2025</span> The English Channels - The Cure Tribute. <span class="mobile-break"></span>All rights reserved.</p>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('mobileMenu');
+
+    function setOpen(isOpen) {
+      body.classList.toggle('menu-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+
+    menuBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+
+    // Close on link click
+    overlay.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-close]');
+      if (link) setOpen(false);
+    });
+
+    // Lightbox functionality
+    function openLightbox(imageSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imageSrc;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(event) {
+      const lightbox = document.getElementById('lightbox');
+      if (event.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
+    // Optional: click outside the menu-inner closes (clicking overlay background)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOpen(false);
+    });
+
+    // Escape closes
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('menu-open')) setOpen(false);
+    });
+
+    // Auto-close if resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 861px)').matches) setOpen(false);
+    });
+
+    // Dynamic footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

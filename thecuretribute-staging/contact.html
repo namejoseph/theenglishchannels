@@ -25,6 +25,7 @@
       --footer-h: 84px;
       --pad: clamp(16px, 2.5vw, 28px);
       --fuschia: #c70864;
+      --purple: #800080;
     }
 
     /* Page layout */
@@ -120,12 +121,144 @@
       margin: 12px 0 24px;
     }
 
+    /* Contact Section */
+    .contact-section {
+      padding: 2rem 2rem;
+      text-align: center;
+      color: white;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-section h1 {
+      font-family: "balboa-plus-fill", sans-serif;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .contact-section p {
+      font-family: 'Futura', sans-serif;
+      font-size: 19.2px;
+      line-height: 1.8;
+      color: #bbb;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 50px 32px;
+      margin-bottom: 40px;
+    }
+
+    .contact-section a {
+      color: var(--fuschia);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      color: var(--purple);
+    }
+
+    .contact-form {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .input-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 200px;
+      text-align: left;
+    }
+
+    .input-group label {
+      color: white;
+      font-family: 'Futura', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      background-color: #000;
+      border: none;
+      color: white;
+      padding: 15px;
+      font-family: 'Futura', sans-serif;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .input-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 1px solid purple;
+    }
+
+    .submit-btn {
+      background-color: purple;
+      color: white;
+      font-family: 'Futura', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      padding: 12px 30px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 200px;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--fuschia);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     @media (max-width: 768px){
       .videos-grid{
         grid-template-columns: 1fr;
       }
       .section h1{
         font-size: 40px;
+      }
+      .contact-section h1 {
+        font-size: 2.5rem;
+      }
+      .input-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .input-group {
+        margin-bottom: 20px;
+      }
+      .submit-btn {
+        max-width: 100%;
       }
     }
 
@@ -332,14 +465,14 @@
 <body>
   <!-- Normal site header -->
   <header>
-    <a href="temp-home.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+    <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
 
     <nav class="nav-desktop" aria-label="Primary">
-      <a href="temp-about.html">About</a>
-      <a href="temp-shows.html">Shows</a>
-      <a href="temp-videos.html">Videos</a>
-      <a href="temp-photos.html">Photos</a>
-      <a href="temp-contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="shows.html">Shows</a>
+      <a href="videos.html">Videos</a>
+      <a href="photos.html">Photos</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <div class="header-socials">
@@ -358,7 +491,7 @@
   <!-- Full-screen mobile menu overlay -->
   <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="menu-header">
-      <a href="temp-home.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+      <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
 
       <button class="menu-btn" id="closeBtn" aria-label="Close menu">
         <span class="icon-bars" aria-hidden="true">
@@ -369,11 +502,11 @@
 
     <div class="menu-inner">
       <div class="menu-links">
-        <a href="temp-about.html" data-close>About</a>
-        <a href="temp-shows.html" data-close>Shows</a>
-        <a href="temp-videos.html" data-close>Videos</a>
-        <a href="temp-photos.html" data-close>Photos</a>
-        <a href="temp-contact.html" data-close>Contact</a>
+        <a href="about.html" data-close>About</a>
+        <a href="shows.html" data-close>Shows</a>
+        <a href="videos.html" data-close>Videos</a>
+        <a href="photos.html" data-close>Photos</a>
+        <a href="contact.html" data-close>Contact</a>
       </div>
 
       <div class="menu-social" aria-label="Social links">
@@ -385,76 +518,32 @@
   </div>
 
   <main>
-    <section id="videos" class="section">
-      <h1>Videos</h1>
-      <div class="videos-grid">
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ibpGeHphaIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h1>Contact</h1>
+
+      
+      <p>For all booking or other inquiries, please fill out the contact form below or email us at <a href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a>.</p>
+
+      <form id="contactForm" class="contact-form" action="https://usebasin.com/f/f3fa340389da" method="POST" enctype="multipart/form-data">
+        <div class="input-row">
+          <div class="input-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
           </div>
-          <p>"Forest" Live at 3TEN ACL LIVE</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z3UKK2nBGgE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
           </div>
-          <p>"Disintegration" Live at 3TEN ACL LIVE</p>
         </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ujnmYEubYZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Lullaby" Live at 3TEN ACL LIVE</p>
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
         </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WZiZ-SI6lXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"High" Live at 3TEN ACL LIVE</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/BZiFQV14A9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"The Walk" Live at 3TEN ACL LIVE</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/lLWx9MwkK4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Never Enough" Live at 3TEN ACL LIVE</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dagiCiiOOcY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Burn" Live at 3TEN ACL LIVE</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/T8UlhdmNCqk?si=omEEnZ5hHcB8tpoz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Just Like Heaven"</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/i8-k_N1Kzuw?si=f1wT68zIadrIexA6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Lovesong"</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ti4izKnOh8I?si=yYZ8XztXeeb3pjzG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"Lullaby"</p>
-        </div>
-        <div>
-          <div class="video-responsive">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/z8vG90xpJcI?si=yYZ8XztXeeb3pjzG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p>"In Between Days"</p>
-        </div>
-      </div>
+        <br>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div id="form-message" style="display:none;margin-top:1em;"></div>
     </section>
   </main>
 
@@ -482,6 +571,46 @@
     overlay.addEventListener('click', (e) => {
       const link = e.target.closest('[data-close]');
       if (link) setOpen(false);
+    });
+
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const formMessage = document.getElementById('form-message');
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      formMessage.style.display = 'none';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+          formMessage.style.color = '#fff';
+          form.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(error => {
+        formMessage.textContent = 'There was a problem sending your message. Please try again or email us directly.';
+        formMessage.style.color = '#ff410d';
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        formMessage.style.display = 'block';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit';
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
     });
 
     // Optional: click outside the menu-inner closes (clicking overlay background)
