@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,18 +10,26 @@
   <link rel="stylesheet" href="https://use.typekit.net/coy4inr.css">
 
   <!-- Font Awesome (social icons) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     /* Reset */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { min-height: 100%; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    :root{
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    :root {
       --header-h: 84px;
       --footer-h: 84px;
       --pad: clamp(16px, 2.5vw, 28px);
@@ -28,14 +37,14 @@
     }
 
     /* Page layout */
-    body{
+    body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
     }
 
-    header{
+    header {
       height: var(--header-h);
       background: black;
       color: #fff;
@@ -46,28 +55,33 @@
       padding: 0 var(--pad);
     }
 
-    .logo-cure{
+    .logo-cure {
       height: 40px;
       width: auto;
       display: block;
     }
-    a:hover .logo-cure{
+
+    a:hover .logo-cure {
       content: url('../assets/images/logos/tec-cure-logo-hover.svg');
     }
 
-    .header-socials{
+    .header-socials {
       display: flex;
       gap: 14px;
       align-items: center;
     }
-    .header-socials a{
+
+    .header-socials a {
       color: #fff;
       font-size: 18px;
       text-decoration: none;
     }
-    .header-socials a:hover{ color: var(--fuschia); }
 
-    main{
+    .header-socials a:hover {
+      color: var(--fuschia);
+    }
+
+    main {
       flex: 1;
       background: #111 url('../assets/images/backgrounds/tec-website-bg-cure.jpg') no-repeat center center / cover;
       color: #fff;
@@ -75,13 +89,13 @@
     }
 
     /* Video Section */
-    .section{
+    .section {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 0;
     }
 
-    .section h1{
+    .section h1 {
       font-family: 'balboa-plus-fill', sans-serif;
       font-size: 56px;
       color: #fff;
@@ -90,20 +104,22 @@
       margin: 0 0 32px;
     }
 
-    .videos-grid{
+    .videos-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
     }
 
-    .video-responsive{
+    .video-responsive {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
+      /* 16:9 */
       height: 0;
       overflow: hidden;
     }
-    .video-responsive iframe{
+
+    .video-responsive iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -112,7 +128,7 @@
       border: 0;
     }
 
-    .videos-grid p{
+    .videos-grid p {
       font-family: 'Futura', sans-serif;
       font-size: 17.6px;
       color: #fff;
@@ -122,7 +138,7 @@
 
     /* Shows Section */
 
-     main a {
+    main a {
       color: var(--fuschia);
       font-family: 'Futura', sans-serif;
       text-decoration: none;
@@ -222,11 +238,12 @@
       height: auto;
     }
 
-    @media (max-width: 768px){
-      .videos-grid{
+    @media (max-width: 768px) {
+      .videos-grid {
         grid-template-columns: 1fr;
       }
-      .section h1{
+
+      .section h1 {
         font-size: 40px;
       }
 
@@ -267,7 +284,7 @@
       }
     }
 
- p {
+    p {
       font-family: 'Futura', sans-serif;
       font-size: 19.2px;
       line-height: 1.8;
@@ -280,7 +297,7 @@
       margin-bottom: 24px;
     }
 
-    footer{
+    footer {
       background: url('../assets/images/backgrounds/tec-website-bg-cure-footer.jpg') center top / cover no-repeat;
       color: #fff;
       font-family: 'Futura', sans-serif;
@@ -293,22 +310,24 @@
       gap: 0.25rem;
     }
 
-    .footer-links{
+    .footer-links {
       font-size: 11.52px;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin: 0;
       line-height: 1.6;
     }
-    .footer-links a{
+
+    .footer-links a {
       color: #fff;
       text-decoration: none;
     }
-    .footer-links a:hover{
+
+    .footer-links a:hover {
       color: var(--fuschia);
     }
 
-    .footer-copyright{
+    .footer-copyright {
       font-size: 11.52px;
       color: #bbb;
       text-transform: uppercase;
@@ -318,7 +337,7 @@
     }
 
     /* Header content */
-    .brand{
+    .brand {
       font-size: 28px;
       font-weight: 700;
       line-height: 1;
@@ -326,12 +345,13 @@
     }
 
     /* Desktop nav */
-    .nav-desktop{
+    .nav-desktop {
       display: flex;
       gap: 12px;
       align-items: center;
     }
-    .nav-desktop a{
+
+    .nav-desktop a {
       color: #fff;
       text-decoration: none;
       font-family: 'balboa-plus-fill', sans-serif;
@@ -339,13 +359,17 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-    .nav-desktop a:hover{ color: var(--fuschia); }
+
+    .nav-desktop a:hover {
+      color: var(--fuschia);
+    }
 
     /* Hamburger / X button (no border) */
-    .menu-btn{
+    .menu-btn {
       width: 56px;
       height: 56px;
-      display: none; /* mobile only */
+      display: none;
+      /* mobile only */
       border: 0;
       background: transparent;
       color: #fff;
@@ -353,18 +377,20 @@
       position: relative;
       padding: 0;
     }
-    .menu-btn:focus-visible{
+
+    .menu-btn:focus-visible {
       outline: 2px solid #fff;
       outline-offset: 4px;
     }
 
-    .icon-bars{
+    .icon-bars {
       position: absolute;
       inset: 0;
       display: grid;
       place-items: center;
     }
-    .icon-bars span{
+
+    .icon-bars span {
       display: block;
       width: 24px;
       height: 2px;
@@ -374,20 +400,37 @@
       position: absolute;
       transform-origin: center;
     }
-    .icon-bars span:nth-child(1){ transform: translateY(-8px); }
-    .icon-bars span:nth-child(2){ transform: translateY(0); }
-    .icon-bars span:nth-child(3){ transform: translateY(8px); }
+
+    .icon-bars span:nth-child(1) {
+      transform: translateY(-8px);
+    }
+
+    .icon-bars span:nth-child(2) {
+      transform: translateY(0);
+    }
+
+    .icon-bars span:nth-child(3) {
+      transform: translateY(8px);
+    }
 
     /* Morph to X (no opacity property used) */
-    body.menu-open .icon-bars span:nth-child(1){ transform: rotate(45deg); }
-    body.menu-open .icon-bars span:nth-child(2){ transform: scaleX(0); }
-    body.menu-open .icon-bars span:nth-child(3){ transform: rotate(-45deg); }
+    body.menu-open .icon-bars span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    body.menu-open .icon-bars span:nth-child(2) {
+      transform: scaleX(0);
+    }
+
+    body.menu-open .icon-bars span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
 
     /* Full-screen mobile menu overlay
        - Covers whole screen
        - Grid: header row + remaining space row
        - 1s fade-in */
-    .menu-overlay{
+    .menu-overlay {
       position: fixed;
       inset: 0;
       z-index: 1000;
@@ -400,14 +443,15 @@
       display: grid;
       grid-template-rows: var(--header-h) 1fr;
     }
-    body.menu-open .menu-overlay{
+
+    body.menu-open .menu-overlay {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
     }
 
     /* Overlay header (transparent so it doesn't look like a bar) */
-    .menu-header{
+    .menu-header {
       height: var(--header-h);
       background: transparent;
       color: #fff;
@@ -418,7 +462,7 @@
     }
 
     /* Center links + icons in the space UNDER the header row */
-    .menu-inner{
+    .menu-inner {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -428,52 +472,83 @@
       text-align: center;
     }
 
-    .menu-links{
+    .menu-links {
       display: flex;
       flex-direction: column;
       gap: 18px;
     }
-    .menu-links a{
+
+    .menu-links a {
       color: #fff;
       text-decoration: none;
       font-family: 'balboa-plus-fill', sans-serif;
       font-size: clamp(39px, 8vw, 72px);
       text-transform: uppercase;
     }
-    .menu-links a:hover{ color: var(--fuschia); text-decoration: none; }
 
-    .menu-social{
+    .menu-links a:hover {
+      color: var(--fuschia);
+      text-decoration: none;
+    }
+
+    .menu-social {
       display: flex;
       gap: 22px;
       align-items: center;
       justify-content: center;
       margin-top: 12px;
     }
-    .menu-social a{
+
+    .menu-social a {
       color: #fff;
       font-size: 27px;
       text-decoration: none;
     }
-    .menu-social a:hover{ color: var(--fuschia); text-decoration: none; }
+
+    .menu-social a:hover {
+      color: var(--fuschia);
+      text-decoration: none;
+    }
 
     /* Responsive rules */
-    @media (max-width: 860px){
-      header{ justify-content: space-between; }
-      .nav-desktop{ display: none; }
-      header > .header-socials{ display: none; }
-      .menu-btn{ display: inline-grid; place-items: center; }
-      .bullet-separator{ display: none; }
-      .mobile-break{ display: block; }
-      main{ padding: 2rem; }
+    @media (max-width: 860px) {
+      header {
+        justify-content: space-between;
+      }
+
+      .nav-desktop {
+        display: none;
+      }
+
+      header>.header-socials {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .bullet-separator {
+        display: none;
+      }
+
+      .mobile-break {
+        display: block;
+      }
+
+      main {
+        padding: 2rem;
+      }
     }
 
     /* Prevent background scroll when menu is open */
-    body.menu-open{
+    body.menu-open {
       overflow: hidden;
     }
 
     /* Demo labels */
-    .label{
+    .label {
       font-size: clamp(24px, 4vw, 56px);
       user-select: none;
     }
@@ -483,7 +558,8 @@
 <body>
   <!-- Normal site header -->
   <header>
-    <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+    <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band"
+        class="logo-cure"></a>
 
     <nav class="nav-desktop" aria-label="Primary">
       <a href="about.html">About</a>
@@ -494,9 +570,12 @@
     </nav>
 
     <div class="header-socials">
-      <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i
+          class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i
+          class="fa-brands fa-x-twitter"></i></a>
     </div>
 
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -509,7 +588,8 @@
   <!-- Full-screen mobile menu overlay -->
   <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="menu-header">
-      <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band" class="logo-cure"></a>
+      <a href="index.html"><img src="../assets/images/logos/tec-cure-logo.svg" alt="The Cure Tribute Band"
+          class="logo-cure"></a>
 
       <button class="menu-btn" id="closeBtn" aria-label="Close menu">
         <span class="icon-bars" aria-hidden="true">
@@ -528,9 +608,12 @@
       </div>
 
       <div class="menu-social" aria-label="Social links">
-        <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/theenglishchannels/" aria-label="Instagram" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/theenglishchannelscovers/" aria-label="Facebook" target="_blank"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a href="https://x.com/englishchannels" aria-label="X (Twitter)" target="_blank"><i
+            class="fa-brands fa-x-twitter"></i></a>
       </div>
     </div>
   </div>
@@ -546,27 +629,6 @@
             alt="The Cure Tribute at 3Ten ACL Live with Paranoid Androids Saturday January 10"></a>
       </div>
       <div class="shows-grid">
-
-        <div class="show-row">
-          <div class="show-date">FRI MAR 27</div>
-          <div class="show-venue">HOUSE OF ROCK</div>
-          <div class="show-location">CORPUS CHRISTI, TX</div>
-          <div class="tickets-placeholder"><a href="https://www.facebook.com/events/1687565589283211" target="_blank">DETAILS</a></div>
-        </div>
-
-        <div class="show-row">
-          <div class="show-date">SAT MAR 28</div>
-          <div class="show-venue">THE FLYING WALRUS</div>
-          <div class="show-location">MCALLEN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
-
-        <div class="show-row">
-          <div class="show-date">FRI APR 3</div>
-          <div class="show-venue">ELYSIUM</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
 
         <div class="show-row">
           <div class="show-date">FRI MAY 15</div>
@@ -608,15 +670,18 @@
       <!-- stage plot -->
       <div class="stage-plot">
         <a href="../assets/images/stageplots/cure-stageplotinputlist-2025.pdf" target="_blank"><img
-            src="../assets/images/stageplots/cure-stageplotinputlist-2025.jpg"
-            alt="The Cure Tribute stage plot" class="stage-plot-photo"></a>
+            src="../assets/images/stageplots/cure-stageplotinputlist-2025.jpg" alt="The Cure Tribute stage plot"
+            class="stage-plot-photo"></a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p class="footer-links"><a href="https://theenglishchannels.com">theenglishchannels.com</a> <span class="bullet-separator">•</span> <a href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a></p>
-    <p class="footer-copyright">© <span id="footerYear">2025</span> The English Channels - The Cure Tribute. <span class="mobile-break"></span>All rights reserved.</p>
+    <p class="footer-links"><a href="https://theenglishchannels.com">theenglishchannels.com</a> <span
+        class="bullet-separator">•</span> <a
+        href="mailto:booking@theenglishchannels.com">booking@theenglishchannels.com</a></p>
+    <p class="footer-copyright">© <span id="footerYear">2025</span> The English Channels - The Cure Tribute. <span
+        class="mobile-break"></span>All rights reserved.</p>
   </footer>
 
   <script>
@@ -659,4 +724,5 @@
     document.getElementById('footerYear').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
