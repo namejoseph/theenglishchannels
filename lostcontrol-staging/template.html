@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Template — Full-Screen Mobile Menu</title>
+
+  <!-- Font Awesome (social icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    :root{
+      --header-h: 84px;
+      --footer-h: 84px;
+      --pad: clamp(16px, 2.5vw, 28px);
+    }
+
+    /* Page layout */
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header{
+      height: var(--header-h);
+      background: #c81f2b; /* placeholder */
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad);
+    }
+
+    main{
+      flex: 1;
+      background: #0b5e3c; /* placeholder */
+      color: #fff;
+      display: grid;
+      place-items: center;
+      min-height: calc(100vh - var(--header-h) - var(--footer-h));
+      padding: var(--pad);
+    }
+
+    .content-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    .content-grid h2{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.6rem;
+      margin: 0 0 0.75rem;
+    }
+    .content-grid p{
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0 0 1rem;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px){
+      .content-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer{
+      height: var(--footer-h);
+      background: #ff6a1a; /* placeholder */
+      color: #fff;
+      display: grid;
+      place-items: center;
+      padding: 0 var(--pad);
+    }
+
+    /* Header content */
+    .brand{
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Desktop nav */
+    .nav-desktop{
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+    .nav-desktop a{
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-desktop a:hover{ text-decoration: underline; }
+
+    /* Hamburger / X button (no border) */
+    .menu-btn{
+      width: 56px;
+      height: 56px;
+      display: none; /* mobile only */
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+    }
+    .menu-btn:focus-visible{
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .icon-bars{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+    .icon-bars span{
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 220ms ease;
+      position: absolute;
+      transform-origin: center;
+    }
+    .icon-bars span:nth-child(1){ transform: translateY(-8px); }
+    .icon-bars span:nth-child(2){ transform: translateY(0); }
+    .icon-bars span:nth-child(3){ transform: translateY(8px); }
+
+    /* Morph to X (no opacity property used) */
+    body.menu-open .icon-bars span:nth-child(1){ transform: rotate(45deg); }
+    body.menu-open .icon-bars span:nth-child(2){ transform: scaleX(0); }
+    body.menu-open .icon-bars span:nth-child(3){ transform: rotate(-45deg); }
+
+    /* Full-screen mobile menu overlay
+       - Covers whole screen
+       - Grid: header row + remaining space row
+       - 1s fade-in */
+    .menu-overlay{
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: #374fff; /* placeholder */
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 1000ms ease;
+
+      display: grid;
+      grid-template-rows: var(--header-h) 1fr;
+    }
+    body.menu-open .menu-overlay{
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Overlay header (transparent so it doesn't look like a bar) */
+    .menu-header{
+      height: var(--header-h);
+      background: transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad);
+    }
+
+    /* Center links + icons in the space UNDER the header row */
+    .menu-inner{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+      padding: var(--pad);
+      text-align: center;
+    }
+
+    .menu-links{
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .menu-links a{
+      color: #fff;
+      text-decoration: none;
+      font-size: clamp(22px, 4.6vw, 40px);
+      font-weight: 600;
+    }
+    .menu-links a:hover{ text-decoration: underline; }
+
+    .menu-social{
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .menu-social a{
+      color: #fff;
+      font-size: 34px;
+      text-decoration: none;
+    }
+    .menu-social a:hover{ text-decoration: underline; }
+
+    /* Responsive rules */
+    @media (max-width: 860px){
+      .nav-desktop{ display: none; }
+      .menu-btn{ display: inline-grid; place-items: center; }
+    }
+
+    /* Prevent background scroll when menu is open */
+    body.menu-open{
+      overflow: hidden;
+    }
+
+    /* Demo labels */
+    .label{
+      font-size: clamp(24px, 4vw, 56px);
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Normal site header -->
+  <header>
+    <div class="brand">header</div>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#services">services</a>
+      <a href="#history">history</a>
+      <a href="#team">team</a>
+      <a href="#photos">photos</a>
+      <a href="#video">video</a>
+      <a href="#contact">contact</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="icon-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </header>
+
+  <!-- Full-screen mobile menu overlay -->
+  <div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="menu-header">
+      <div class="brand">header</div>
+
+      <button class="menu-btn" id="closeBtn" aria-label="Close menu">
+        <span class="icon-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <div class="menu-inner">
+      <div class="menu-links">
+        <a href="#home" data-close>home</a>
+        <a href="#about" data-close>about</a>
+        <a href="#services" data-close>services</a>
+        <a href="#history" data-close>history</a>
+        <a href="#team" data-close>team</a>
+        <a href="#photos" data-close>photos</a>
+        <a href="#video" data-close>video</a>
+        <a href="#contact" data-close>contact</a>
+      </div>
+
+      <div class="menu-social" aria-label="Social links">
+        <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="home">
+    <div class="content-grid">
+      <div>
+        <h2>What is Lorem Ipsum?</h2>
+        <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      </div>
+      <div>
+        <h2>Why do we use it?</h2>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+      </div>
+      <div>
+        <h2>Where does it come from?</h2>
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+      </div>
+      <div>
+        <h2>Where can I get some?</h2>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't even look slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="label" style="font-size: clamp(20px, 3vw, 44px);">footer</div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('mobileMenu');
+
+    function setOpen(isOpen) {
+      body.classList.toggle('menu-open', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+
+    menuBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+
+    // Close on link click
+    overlay.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-close]');
+      if (link) setOpen(false);
+    });
+
+    // Optional: click outside the menu-inner closes (clicking overlay background)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOpen(false);
+    });
+
+    // Escape closes
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('menu-open')) setOpen(false);
+    });
+
+    // Auto-close if resizing up to desktop
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 861px)').matches) setOpen(false);
+    });
+  </script>
+</body>
+</html>
