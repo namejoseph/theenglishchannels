@@ -43,6 +43,13 @@ header {
   justify-content: center;
   gap: 24px;
   padding: 0 var(--pad);
+  position: relative;
+  z-index: 100;
+}
+
+/* Home page: Hide header logo on desktop when animated logo is present */
+.page-home header > a:first-child {
+  display: none;
 }
 
 .logo-cure {
@@ -789,6 +796,11 @@ textarea:focus {
   }
 
   .cure-animated-logo { display: none; }
+
+  /* Home page: Show header logo on mobile when animated logo is hidden */
+  .page-home header > a:first-child {
+    display: block;
+  }
 
   .gradient-overlay {
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 60%, #000 80%);
