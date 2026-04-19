@@ -766,10 +766,8 @@ textarea:focus {
    ======================== */
 @media (max-width: 1000px) {
   body.page-home {
-    height: 100vh;
-    height: 100dvh;
-    max-height: 100vh;
-    max-height: 100dvh;
+    height: var(--app-height, 100dvh);
+    max-height: var(--app-height, 100dvh);
     overflow: hidden;
   }
 
@@ -780,24 +778,23 @@ textarea:focus {
 
   .cure-middle {
     flex: 1;
-    flex-direction: column;
     position: relative;
     min-height: 0;
+    overflow: hidden;
   }
 
   .cure-middle-content {
-    flex: 1;
+    position: absolute;
+    inset: 0;
+    display: flex;
     flex-direction: column;
-    position: relative;
-    min-height: 0;
   }
 
   .cure-middle-photo {
-    flex: 1;
-    min-height: 0;
+    position: absolute;
+    inset: 0;
     background-position: center 25%;
     background-size: cover;
-    position: relative;
   }
 
   .cure-animated-logo { display: none; }
