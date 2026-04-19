@@ -76,6 +76,55 @@
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/tec-cure.css">
 
+    <!-- Mobile layout override (simple flow) -->
+    <style>
+      @media (max-width: 1000px) {
+        body.page-home {
+          height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+          overflow-x: hidden;
+          background: #000;
+        }
+        header {
+          position: sticky;
+          top: 0;
+          z-index: 200;
+        }
+        .cure-middle {
+          position: static !important;
+          flex: none !important;
+          overflow: visible !important;
+          height: auto !important;
+          background: #000;
+        }
+        .cure-middle-content {
+          position: static !important;
+          display: block !important;
+          height: auto !important;
+        }
+        .cure-animated-logo { display: none !important; }
+        .cure-middle-photo {
+          position: static !important;
+          width: 100% !important;
+          height: auto !important;
+          background: none !important;
+        }
+        .cure-mobile-photo {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          position: static !important;
+        }
+        .gradient-overlay { display: none !important; }
+        body.page-home footer {
+          height: auto !important;
+          padding-top: 1.25rem !important;
+          padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 24px)) !important;
+        }
+      }
+    </style>
+
 </head>
 
 <body class="page-home">
