@@ -767,11 +767,16 @@ textarea:focus {
 @media (max-width: 1000px) {
   body.page-home {
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     overflow: hidden;
   }
 
-  body.page-home footer { flex-shrink: 0; }
+  body.page-home footer {
+    flex-shrink: 0;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
 
   .cure-middle {
     flex: 1;
@@ -790,8 +795,8 @@ textarea:focus {
   .cure-middle-photo {
     flex: 1;
     min-height: 0;
-    background-position: center 35%;
-    background-size: 125%;
+    background-position: center 25%;
+    background-size: cover;
     position: relative;
   }
 
@@ -803,7 +808,7 @@ textarea:focus {
   }
 
   .gradient-overlay {
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 60%, #000 80%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 55%, #000 72%, #000 100%);
   }
 }
 
