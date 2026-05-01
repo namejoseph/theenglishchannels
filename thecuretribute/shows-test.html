@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -147,85 +148,120 @@
             alt="The Cure Tribute at 3Ten ACL Live with Paranoid Androids Saturday January 10"></a>
       </div> -->
 
-      <div class="shows-grid">
+     <div class="shows-grid" id="cure-shows-grid">
+  <!-- Shows from Google Sheets will load here -->
+</div>
 
-        <div class="show-row">
-          <div class="show-date">FRI<br>5/15/26</div>
-          <div class="show-venue">RAH RAH ROOM</div>
-          <div class="show-location">SAN ANTONIO, TX</div>
-          <div class="tickets-placeholder"><a href="https://www.therahrahroom.com/events-2-1/the-english-channels-the-cure-paranoid-androids-radiohead-live-at-rah-rah-room" target="_blank">TICKETS</a></div>
-        </div>
+<script>
+  const sheetUrl = "https://docs.google.com/spreadsheets/d/1ZNr46IqPU2YrYgbgHiprfR90_-goBhMSbv8pyBG4l5M/export?format=csv&gid=0";
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>5/23/26</div>
-          <div class="show-venue">FAR OUT LOUNGE</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+  function parseCSV(csv) {
+    const rows = [];
+    let currentRow = [];
+    let currentValue = "";
+    let insideQuotes = false;
 
-        <div class="show-row">
-          <div class="show-date">SUN<br>5/31/26</div>
-          <div class="show-venue">MEANWHILE BREWING</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+    for (let i = 0; i < csv.length; i++) {
+      const char = csv[i];
+      const nextChar = csv[i + 1];
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>7/11/26</div>
-          <div class="show-venue">3TEN ACL LIVE</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+      if (char === '"' && insideQuotes && nextChar === '"') {
+        currentValue += '"';
+        i++;
+      } else if (char === '"') {
+        insideQuotes = !insideQuotes;
+      } else if (char === "," && !insideQuotes) {
+        currentRow.push(currentValue);
+        currentValue = "";
+      } else if ((char === "\n" || char === "\r") && !insideQuotes) {
+        if (currentValue || currentRow.length) {
+          currentRow.push(currentValue);
+          rows.push(currentRow);
+          currentRow = [];
+          currentValue = "";
+        }
+      } else {
+        currentValue += char;
+      }
+    }
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>7/25/26</div>
-          <div class="show-venue">SAM'S BURGER JOINT</div>
-          <div class="show-location">SAN ANTONIO, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+    if (currentValue || currentRow.length) {
+      currentRow.push(currentValue);
+      rows.push(currentRow);
+    }
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>8/8/26</div>
-          <div class="show-venue">TREES</div>
-          <div class="show-location">DALLAS, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+    return rows;
+  }
 
-        <div class="show-row">
-          <div class="show-date">SUN<br>9/20/26</div>
-          <div class="show-venue">CENTRAL MACHINE WORKS</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+  function parseSheetDate(dateString) {
+    const parts = dateString.trim().split("/");
 
-        <div class="show-row">
-          <div class="show-date">FRI<br>10/31/26</div>
-          <div class="show-venue">THE 13TH FLOOR</div>
-          <div class="show-location">AUSTIN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+    const month = Number(parts[0]) - 1;
+    const day = Number(parts[1]);
+    const year = Number(parts[2]);
 
-        <div class="show-row">
-          <div class="show-date">FRI<br>11/27/26</div>
-          <div class="show-venue">TBA</div>
-          <div class="show-location"></div>
-          <div class="tickets-placeholder"></div>
-        </div>
+    return new Date(year, month, day, 12, 0, 0);
+  }
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>11/28/26</div>
-          <div class="show-venue">THE FLYING WALRUS</div>
-          <div class="show-location">MCALLEN, TX</div>
-          <div class="tickets-placeholder"></div>
-        </div>
+  function formatDate(dateString) {
+    const date = parseSheetDate(dateString);
 
-        <div class="show-row">
-          <div class="show-date">SAT<br>12/12/26</div>
-          <div class="show-venue">BAJO CIRCUITO</div>
-          <div class="show-location">MEXICO CITY, MEXICO</div>
-          <div class="tickets-placeholder"></div>
-        </div>
-      </div>
+    const weekday = date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const year = String(date.getFullYear()).slice(-2);
+
+    return `${weekday}<br>${month}/${day}/${year}`;
+  }
+
+  fetch(sheetUrl)
+    .then(response => response.text())
+    .then(csv => {
+      const rows = parseCSV(csv);
+      const headers = rows[0].map(header => header.trim().toLowerCase());
+
+      const shows = rows.slice(1).map(row => {
+        const show = {};
+
+        headers.forEach((header, index) => {
+          show[header] = row[index] ? row[index].trim() : "";
+        });
+
+        return show;
+      });
+
+      const cureShows = shows.filter(show => {
+        return show.band && show.band.toLowerCase() === "cure";
+      });
+
+      cureShows.sort((a, b) => {
+        return parseSheetDate(a.date) - parseSheetDate(b.date);
+      });
+
+      const showsGrid = document.getElementById("cure-shows-grid");
+
+      showsGrid.innerHTML = "";
+
+      cureShows.forEach(show => {
+        const showRow = document.createElement("div");
+        showRow.className = "show-row";
+
+        showRow.innerHTML = `
+          <div class="show-date">${formatDate(show.date)}</div>
+          <div class="show-venue">${show.venue}</div>
+          <div class="show-location">${show.city}</div>
+          <div class="tickets-placeholder">
+            ${show.link ? `<a href="${show.link}" target="_blank" rel="noopener noreferrer">TICKETS</a>` : ""}
+          </div>
+        `;
+
+        showsGrid.appendChild(showRow);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading shows:", error);
+    });
+</script>
 
 
       <!-- stage plot -->

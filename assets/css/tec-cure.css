@@ -446,14 +446,14 @@ footer {
 .shows-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
   max-width: 1000px;
   margin: 0 auto 2rem;
 }
 
 .show-row {
   display: grid;
-  grid-template-columns: 150px 1fr 200px 120px;
+  grid-template-columns: 120px 1fr 180px 120px;
   gap: 1.5rem;
   align-items: center;
   padding: 1rem 0;
@@ -467,7 +467,9 @@ footer {
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .show-venue {
@@ -859,7 +861,7 @@ textarea:focus {
 
   .show-flyers img { width: 100%; }
 
-  .shows-grid { gap: 1rem; padding: 0 1rem; }
+  .shows-grid { gap: 2rem; padding: 0 1rem; }
 
   .show-row { grid-template-columns: 1fr; text-align: center; }
 
