@@ -363,6 +363,7 @@ img {
 .show-list .show-item .city {
     flex: 0 0 140px;
     text-align: right;
+    text-transform: uppercase;
 }
 
 /* --- Footer --- */
