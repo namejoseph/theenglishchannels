@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PHOTOS | Lost Control</title>
+  <title>SHOWS | Lost Control</title>
   <meta name="description" content="View live performance photos of Lost Control — Austin's tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave." />
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="PHOTOS | Lost Control" />
+  <meta name="title" content="SHOWS | Lost Control" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://theenglishchannels.com/youvelostcontrol/photos.html" />
-  <meta property="og:title" content="PHOTOS | Lost Control" />
+  <meta property="og:title" content="SHOWS | Lost Control" />
   <meta property="og:description" content="View live performance photos of Lost Control — Austin's tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave." />
   <meta property="og:image" content="../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg" />
   <meta property="og:image:secure_url" content="../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg" />
@@ -22,7 +22,7 @@
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://theenglishchannels.com/youvelostcontrol/photos.html" />
-  <meta property="twitter:title" content="PHOTOS | Lost Control" />
+  <meta property="twitter:title" content="SHOWS | Lost Control" />
   <meta property="twitter:description" content="View live performance photos of Lost Control — Austin's tribute to Joy Division, New Order, Echo & the Bunnymen, and the darkwave icons of post-punk and new wave." />
   <meta property="twitter:image" content="../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg" />
 
@@ -46,7 +46,7 @@
     "@context": "https://schema.org",
     "@type": "MusicGroup",
     "name": "Lost Control",
-    "genre": ["Post-Punk", "New Wave", "Darkwave", "Gothic Rock"],
+    "genre": ["Post-Punk", "New Wave", "Darkwave", "Gothic Rock", "Tribute Band", "Joy Division", "New Order", "Echo & the Bunnymen"],
     "url": "https://theenglishchannels.com/youvelostcontrol/",
     "sameAs": [
       "https://www.instagram.com/lostcontrolatx/",
@@ -96,7 +96,7 @@
       display: block;
     }
     a:hover .logo-ylc{
-      content: url('../assets/images/logos/tec-website-logo-lostcontrol-ro.svg');
+      content: url('../assets/images/logos/tec-website-logo-lostcontrol-hover.svg');
     }
 
     .header-socials{
@@ -115,7 +115,151 @@
       flex: 1;
       background: #2f0b37;
       color: #fff;
-      padding: var(--pad);
+      padding: 0;
+    }
+
+    /* --- About Section --- */
+    #shows{
+      background: url('../assets/images/backgrounds/tec-website-bg-ylc-bw.jpg') top center no-repeat;
+      background-color: #b11f59;
+      background-size: cover;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
+      text-align: center;
+    }
+
+    .about-content{
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-main-photo{
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .about-text h1{
+      font-family: "grand-central", serif;
+      font-weight: 700;
+      font-size: clamp(28px, 4.2vw, 52px);
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin: 0 0 1.25rem;
+    }
+
+    .about-description{
+      color: #fff;
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.6;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px){
+      #about{ padding: 2rem 1rem; }
+    }
+
+    /* --- Shows Section --- */
+    #shows .shows-inner,
+    #shows > h1,
+    #shows > table,
+    #shows > .stage-plot,
+    #shows > .btn{
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #shows h1{
+      font-family: "grand-central", serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 56px);
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .shows-table{
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      border-collapse: collapse;
+      color: #fff;
+    }
+
+    .shows-table th,
+    .shows-table td{
+      padding: 1rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #333;
+      font-size: 1rem;
+      font-family: 'Futura', 'Futura PT', Arial, sans-serif;
+    }
+
+    .shows-table th{
+      color: var(--pink);
+      text-transform: capitalize;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .shows-table td a{
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid var(--pink);
+      padding-bottom: 2px;
+    }
+    .shows-table td a:hover{ color: var(--pink); }
+
+    .stage-plot{
+      text-align: center;
+      margin: 2rem auto 2.5rem;
+    }
+
+    .stage-plot a{ display: inline-block; }
+
+    .stage-plot-photo,
+    .stage-plot img{
+      max-width: 100%;
+      width: 800px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #shows > .btn,
+    #shows .btn{
+      display: inline-block;
+      background: #2f0b37;
+      color: #fff;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'Futura', 'Futura PT', Arial, sans-serif;
+      border: 1px solid #fff;
+      transition: background 0.2s, color 0.2s;
+      margin-top: 1rem;
+    }
+
+    #shows .btn:hover{
+      background: var(--pink);
+      color: #fff;
+    }
+
+    #shows{ text-align: center; }
+
+    @media (max-width: 600px){
+      .shows-table th,
+      .shows-table td{
+        padding: 0.75rem 0.4rem;
+        font-size: 0.9rem;
+      }
     }
 
     /* Section */
@@ -504,33 +648,42 @@
   </div>
 
   <main>
-    <section id="photos" class="section gallery-section">
-      <h1>Photos</h1>
+   <section id="shows">
+    <h1>SHOWS</h1>
+    <table class="shows-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Venue</th>
+          <th>City</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc1.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc1-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc2.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc2-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc3.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc3-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc4.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc4-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc5.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc5-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc6.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc6-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-        <div class="gallery-item" onclick="openLightbox('../assets/images/photos/ylc/tec-website-photo-ylc7.jpeg')">
-          <img src="../assets/images/photos/ylc/tec-website-photo-ylc7-thumbnail.jpg" alt="Lost Control performance">
-        </div>
-      </div>
-    </section>
+        <tr>
+          <td>SAT MAY 23</td>
+          <td>Far Out Lounge</td>
+          <td>Austin, TX</td>
+          <td><a href="#"></a></td>
+        </tr>
+        <tr>
+          <td>SAT AUG 8</td>
+          <td>The 13th Floor</td>
+          <td>Austin, TX</td>
+          <td><a href="#"></a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- stage plot -->
+    <div class="stage-plot">
+     <a href="../assets/images/stageplots/lostcontrol-stageplotinputlist-2025.pdf" target="_blank"><img src="../assets/images/stageplots/lostcontrol-stageplotinputlist-2025.jpg" alt="You've Lost Control stage plot"
+        class="stage-plot-photo"></a>
+    </div>
+
+    <a class="btn" href="#contact">Request a Show</a>
+  </section>
   </main>
 
   <!-- Lightbox -->
