@@ -229,7 +229,7 @@ body.menu-open { overflow: hidden; }
    ======================== */
 main {
   flex: 1;
-  background: #111 url('../images/backgrounds/tec-website-bg-cure.jpg') no-repeat center center / cover;
+  background: #111 url('../images/backgrounds/tec-website-bg-cure.jpg') repeat center center / contain;
   color: #fff;
   padding: var(--pad);
 }
@@ -889,4 +889,54 @@ textarea:focus {
 
 @media (max-width: 600px) {
   main { padding: 1rem; }
+}
+
+/* ==========================================================================
+   Home page mobile layout override (simple flow)
+   Scoped to body.page-home — only affects thecuretribute/index.html
+   ========================================================================== */
+@media (max-width: 1000px) {
+  body.page-home {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-x: hidden;
+    background: #000;
+  }
+  body.page-home header {
+    position: relative;
+    z-index: 200;
+  }
+  body.page-home .cure-middle {
+    position: static !important;
+    flex: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    background: #000;
+  }
+  body.page-home .cure-middle-content {
+    position: static !important;
+    display: block !important;
+    height: auto !important;
+  }
+  body.page-home .cure-animated-logo { display: none !important; }
+  body.page-home .cure-middle-photo {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background: none !important;
+  }
+  body.page-home .cure-mobile-photo {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+  }
+  body.page-home .gradient-overlay { display: none !important; }
+  body.page-home footer {
+    height: auto !important;
+    background: #000 !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 24px)) !important;
+  }
 }
