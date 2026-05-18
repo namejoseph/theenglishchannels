@@ -491,13 +491,12 @@ footer {
 }
 
 .tickets-btn {
-  font-family: 'Futura', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'balboa-plus-fill', sans-serif;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #800080;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0.7rem 1.5rem;
   transition: all 0.3s ease;
   letter-spacing: 1px;
   text-align: center;
