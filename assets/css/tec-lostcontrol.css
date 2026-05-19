@@ -44,7 +44,7 @@ header{
   display: block;
 }
 a:hover .logo-ylc{
-  content: url('../images/logos/tec-website-logo-lostcontrol-hover.svg');
+  content: url('../images/logos/tec-website-logo-lostcontrol-hover-ff7fcf.svg');
 }
 
 .header-socials{
@@ -490,7 +490,7 @@ body.lc-photos main{
   padding: 0.7rem;
   border: none;
   border-radius: 3px;
-  background: #222;
+  background: #000;
   color: #fff;
   outline: none;
 }
@@ -688,11 +688,16 @@ body.lc-photos main{
   text-align: left;
 }
 
+.video-featured{
+  grid-column: 1 / -1;
+}
+
 .videos-grid > div > div:last-child{
   margin-top: 0.5rem;
   font-size: 0.95rem;
   color: #fff;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .video-responsive{
