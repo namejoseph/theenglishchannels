@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Temporary / legacy paths — exclude from indexing
+Disallow: /thecuretribute-old/
+Disallow: /index-backup.html
+Disallow: /youvelostcontrol/
+Disallow: /lostcontrol/template.html
+Disallow: /lostcontrol/template-lowcontent.html
+
+Sitemap: https://theenglishchannels.com/sitemap.xml
