@@ -430,6 +430,8 @@ body.menu-open .menu-overlay{
 
 @media (max-width: 600px){
   .bullet-separator{ display: none; }
+  .footer-links a{ display: block; }
+  .footer-copyright{ max-width: 280px; margin-left: auto; margin-right: auto; }
 }
 
 /* Prevent background scroll when menu is open */
