@@ -139,7 +139,6 @@ main{
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   aspect-ratio: 1 / 1;
@@ -447,7 +446,7 @@ body.lc-photos a:hover .logo-ylc{
   content: url('../images/logos/tec-website-logo-lostcontrol-ro.svg');
 }
 body.lc-photos main{
-  padding: 0;
+  padding: 0 var(--pad);
 }
 
 /* ==========================================================================
