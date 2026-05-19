@@ -1,13 +1,13 @@
 # The English Channels
 
-Official website for **The English Channels** — an Austin, TX based group performing the music of The Cure, Joy Division, New Order, Echo & the Bunnymen, Interpol, and more.
+Official website for **The English Channels** — an Austin, TX based groups performing the music of The Cure, Joy Division, New Order, Echo & the Bunnymen, Interpol, and more.
 
 Live site: [theenglishchannels.com](https://theenglishchannels.com)
 
 ## Projects
 
 - **The Cure Tribute** — `/thecuretribute/`
-- **Lost Control** (post-punk / new wave / darkwave) — `/lostcontrol/`
+- **Lost Control** (post-punk / new wave / darkwave / songs by Joy Division, New Order, Echo & the Bunnymen, Interpol, and more) — `/lostcontrol/`
 
 ## Structure
 
