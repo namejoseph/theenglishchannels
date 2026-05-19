@@ -607,7 +607,10 @@ body.lc-photos main{
   border-bottom: 1px solid #fff;
   padding-bottom: 2px;
 }
-.shows-table td a:hover{ color: var(--pink); }
+.shows-table td a:hover{
+  color: var(--pink);
+  border-bottom-color: var(--pink);
+}
 
 .stage-plot{
   text-align: center;
