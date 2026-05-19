@@ -40,6 +40,7 @@ header{
 .logo-ylc{
   height: 40px;
   width: auto;
+  max-width: 70vw;
   display: block;
 }
 a:hover .logo-ylc{
@@ -60,7 +61,9 @@ a:hover .logo-ylc{
 
 main{
   flex: 1;
-  background: #2f0b37;
+  background: url('../images/backgrounds/tec-website-bg-ylc-bw.jpg') top center no-repeat;
+  background-color: #000;
+  background-size: cover;
   color: #fff;
   padding: 0;
 }
@@ -423,12 +426,10 @@ body.menu-open .menu-overlay{
   .nav-desktop{ display: none; }
   header > .header-socials{ display: none; }
   .menu-btn{ display: inline-grid; place-items: center; }
-  main{ padding: 2rem; }
 }
 
 @media (max-width: 600px){
   .bullet-separator{ display: none; }
-  main{ padding: 1rem; }
 }
 
 /* Prevent background scroll when menu is open */
@@ -444,14 +445,14 @@ body.lc-photos a:hover .logo-ylc{
   content: url('../images/logos/tec-website-logo-lostcontrol-ro.svg');
 }
 body.lc-photos main{
-  padding: var(--pad);
+  padding: 0;
 }
 
 /* ==========================================================================
    Contact page
    ========================================================================== */
 #contact{
-  background: #2f0b37;
+  background: transparent;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
   text-align: center;
 }
@@ -549,9 +550,7 @@ body.lc-photos main{
    Shows page
    ========================================================================== */
 #shows{
-  background: url('../images/backgrounds/tec-website-bg-ylc-bw.jpg') top center no-repeat;
-  background-color: #b11f59;
-  background-size: cover;
+  background: transparent;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
   text-align: center;
 }
@@ -661,9 +660,7 @@ body.lc-photos main{
    Videos page
    ========================================================================== */
 #videos{
-  background: url('../images/backgrounds/tec-website-bg-ylc-bw.jpg') top center no-repeat;
-  background-color: #000;
-  background-size: cover;
+  background: transparent;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
   text-align: center;
 }

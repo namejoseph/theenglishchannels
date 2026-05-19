@@ -229,7 +229,7 @@
         const weekday = date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
         const month = date.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
         const day = date.getDate();
-        return `${weekday} ${month} ${day}`;
+        return `${weekday}<br>${month}&nbsp;${day}`;
       }
 
       function escapeHtml(value) {
