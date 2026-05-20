@@ -207,7 +207,7 @@
 
     <footer class="site-footer-main">
         <div class="footer-fine-print">
-            <span>THE ENGLISH CHANNELS ©2025. ALL RIGHTS RESERVED.</span><br>
+            <span>THE ENGLISH CHANNELS ©<span id="footerYear">2026</span>. ALL RIGHTS RESERVED.</span><br>
             <span>CONTACT: <a href="mailto:booking@theenglishchannels.com"
                     class="email-link">booking@theenglishchannels.com</a></span>
         </div>
@@ -228,6 +228,9 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script>
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 

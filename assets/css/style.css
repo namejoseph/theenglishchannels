@@ -118,7 +118,37 @@ img {
     }
 
     .logo-icons {
-        min-height: 100px;
+        min-height: 75px;
+        max-height: 75px;
+    }
+
+    /* Home show list — mobile layout: stacked weekday/date, larger text, consistent grid */
+    .show-list .show-item {
+        display: grid;
+        grid-template-columns: 70px 1fr auto;
+        column-gap: 12px;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .show-list .show-item .date {
+        flex: none;
+        line-height: 1.15;
+    }
+
+    .show-list .show-item .date .date-weekday {
+        display: block;
+    }
+
+    .show-list .show-item .venue {
+        flex: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .show-list .show-item .city {
+        flex: none;
+        text-align: right;
     }
 }
 

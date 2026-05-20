@@ -139,7 +139,7 @@
 
     <footer class="site-footer-main">
         <div class="footer-fine-print">
-            <span>THE ENGLISH CHANNELS ©2026. ALL RIGHTS RESERVED.</span><br>
+            <span>THE ENGLISH CHANNELS ©<span id="footerYear"></span>2026</span>. ALL RIGHTS RESERVED.</span><br>
             <span>CONTACT: <a href="mailto:booking@theenglishchannels.com"
                     class="email-link">booking@theenglishchannels.com</a></span>
         </div>
@@ -218,7 +218,7 @@
           const weekday = date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
           const month = date.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
           const day = date.getDate();
-          return `${weekday} ${month} ${day}`;
+          return `<span class="date-weekday">${weekday}</span> <span class="date-md">${month} ${day}</span>`;
         }
 
         function renderShows(shows, container) {
@@ -265,6 +265,10 @@
 
             if (cureContainer) renderShows(upcomingFor("cure"), cureContainer);
             if (lcContainer) renderShows(upcomingFor("lost control"), lcContainer);
+
+            // Update footer year dynamically
+            const footerYearEl = document.getElementById("footerYear");
+            if (footerYearEl) footerYearEl.textContent = new Date().getFullYear();
           })
           .catch(error => {
             console.error("Error loading home shows:", error);
