@@ -7,5 +7,7 @@ Disallow: /index-backup.html
 Disallow: /youvelostcontrol/
 Disallow: /lostcontrol/template.html
 Disallow: /lostcontrol/template-lowcontent.html
+Disallow: /thecuretribute/shows/shows-backup.html
+Disallow: /thecuretribute/shows/shows-test.html
 
 Sitemap: https://theenglishchannels.com/sitemap.xml
