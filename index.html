@@ -47,9 +47,91 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <style>
+      .shows-loading,
+      .shows-empty {
+        opacity: 0.6;
+        font-style: italic;
+        text-align: center;
+        padding: 0.5em 0;
+      }
+      .shows-loading::after {
+        content: "";
+        display: inline-block;
+        width: 1.2em;
+        text-align: left;
+        animation: shows-ellipsis 1.4s steps(4, end) infinite;
+      }
+      @keyframes shows-ellipsis {
+        0%, 20%   { content: ""; }
+        40%       { content: "."; }
+        60%       { content: ".."; }
+        80%, 100% { content: "..."; }
+      }
+    </style>
+
     <!-- Replace with your Futura font source if available, e.g., Adobe Fonts -->
     <!-- Font Awesome 6.5.2 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "@id": "https://theenglishchannels.com/#band",
+  "name": "The English Channels",
+  "url": "https://theenglishchannels.com/",
+  "logo": "https://theenglishchannels.com/assets/images/logos/tec-website-logo-circles.svg",
+  "image": "https://theenglishchannels.com/assets/images/og/tec-website-ogimage.jpg",
+  "description": "Austin, TX based musical collective performing the music of The Cure, Joy Division, New Order, Echo & the Bunnymen, Interpol, and more. Operates as two distinct live shows: The Cure Tribute and Lost Control.",
+  "genre": ["Post-Punk", "New Wave", "Darkwave", "Tribute"],
+  "email": "booking@theenglishchannels.com",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    }
+  },
+  "sameAs": [
+    "https://www.youtube.com/@TheEnglishChannels",
+    "https://www.instagram.com/theenglishchannels/",
+    "https://www.facebook.com/theenglishchannelscovers/",
+    "https://x.com/englishchannels"
+  ],
+  "subOrganization": [
+    {
+      "@type": "MusicGroup",
+      "name": "The Cure Tribute",
+      "url": "https://theenglishchannels.com/thecuretribute/",
+      "description": "A dedicated tribute to The Cure.",
+      "genre": ["Post-Punk", "New Wave", "Gothic Rock", "Tribute"],
+      "parentOrganization": { "@id": "https://theenglishchannels.com/#band" }
+    },
+    {
+      "@type": "MusicGroup",
+      "name": "Lost Control",
+      "url": "https://theenglishchannels.com/lostcontrol/",
+      "description": "Post-punk, new wave, and darkwave covers including Joy Division, New Order, Echo & the Bunnymen, and Interpol.",
+      "genre": ["Post-Punk", "New Wave", "Darkwave", "Tribute"],
+      "parentOrganization": { "@id": "https://theenglishchannels.com/#band" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://theenglishchannels.com/",
+  "name": "The English Channels",
+  "publisher": { "@id": "https://theenglishchannels.com/#band" }
+}
+</script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLHH1E24B8"></script>
   <script>
@@ -120,8 +202,8 @@
                 <img src="assets/images/logos/tec-website-logo-cure.svg" alt="The Cure Tribute"
                     class="tribute-logo-cure"><br>
                 <a href="./thecuretribute" class="enter-site-btn">ENTER SITE</a>
-                <div class="show-list" id="cure-home-shows">
-                    <!-- Upcoming Cure shows loaded from Google Sheets -->
+                <div class="show-list" id="cure-home-shows" aria-live="polite" data-empty-message="No upcoming shows">
+                    <div class="shows-loading">Loading shows</div>
                 </div>
             </div>
         </section>
@@ -130,8 +212,8 @@
                 <img src="assets/images/logos/tec-website-logo-lostcontrol-tagline.svg" alt="You've Lost Control"
                     class="tribute-logo-ylc"><br>
                 <a href="./lostcontrol" class="enter-site-btn">ENTER SITE</a>
-                <div class="show-list" id="lostcontrol-home-shows">
-                    <!-- Upcoming Lost Control shows loaded from Google Sheets -->
+                <div class="show-list" id="lostcontrol-home-shows" aria-live="polite" data-empty-message="No upcoming shows">
+                    <div class="shows-loading">Loading shows</div>
                 </div>
             </div>
         </section>
@@ -223,7 +305,13 @@
 
         function renderShows(shows, container) {
           container.innerHTML = "";
-          if (!shows.length) return;
+          if (!shows.length) {
+            const empty = document.createElement("div");
+            empty.className = "shows-empty";
+            empty.textContent = container.dataset.emptyMessage || "No upcoming shows";
+            container.appendChild(empty);
+            return;
+          }
           shows.forEach(show => {
             const item = document.createElement("div");
             item.className = "show-item";

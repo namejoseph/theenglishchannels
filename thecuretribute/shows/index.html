@@ -76,6 +76,29 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="../../assets/css/tec-cure.css">
+  <style>
+    .shows-loading,
+    .shows-empty {
+      opacity: 0.6;
+      font-style: italic;
+      text-align: center;
+      padding: 1em 0;
+      grid-column: 1 / -1;
+    }
+    .shows-loading::after {
+      content: "";
+      display: inline-block;
+      width: 1.2em;
+      text-align: left;
+      animation: shows-ellipsis 1.4s steps(4, end) infinite;
+    }
+    @keyframes shows-ellipsis {
+      0%, 20%   { content: ""; }
+      40%       { content: "."; }
+      60%       { content: ".."; }
+      80%, 100% { content: "..."; }
+    }
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLHH1E24B8"></script>
   <script>
@@ -167,8 +190,8 @@
             alt="The Cure Tribute at 3Ten ACL Live with Paranoid Androids Saturday January 10"></a>
       </div> -->
 
-      <div class="shows-grid" id="cure-upcoming-shows-grid">
-        <!-- Upcoming Cure shows from Google Sheets will load here -->
+      <div class="shows-grid" id="cure-upcoming-shows-grid" aria-live="polite" data-empty-message="No upcoming shows">
+        <div class="shows-loading">Loading shows</div>
       </div>
 
 
@@ -183,8 +206,8 @@
     <section id="past-shows" class="section">
       <h1>Past Shows</h1>
 
-      <div class="shows-grid" id="cure-past-shows-grid">
-        <!-- Past Cure shows from Google Sheets will load here -->
+      <div class="shows-grid" id="cure-past-shows-grid" aria-live="polite" data-empty-message="No past shows">
+        <div class="shows-loading">Loading shows</div>
       </div>
     </section>
 
@@ -249,8 +272,62 @@
         return `${weekday}<br>${month}/${day}/${year}`;
       }
 
+      function injectEventsJsonLd(shows, performer) {
+        if (!shows || !shows.length) return;
+        const events = shows.map(show => {
+          const date = parseSheetDate(show.date);
+          const isoDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+          const parts = (show.city || "").split(",").map(s => s.trim()).filter(Boolean);
+          const locality = parts[0] || show.city || "";
+          const region = parts[1] || "";
+          const event = {
+            "@context": "https://schema.org",
+            "@type": "MusicEvent",
+            "name": `${performer.name} at ${show.venue}`,
+            "startDate": isoDate,
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+              "@type": "Place",
+              "name": show.venue,
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": locality,
+                "addressRegion": region,
+                "addressCountry": "US"
+              }
+            },
+            "performer": {
+              "@type": "MusicGroup",
+              "name": performer.name,
+              "url": performer.url
+            }
+          };
+          if (show.link) {
+            event.offers = {
+              "@type": "Offer",
+              "url": show.link,
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString().slice(0, 10)
+            };
+          }
+          return event;
+        });
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.textContent = JSON.stringify(events);
+        document.head.appendChild(script);
+      }
+
       function renderShows(shows, container) {
         container.innerHTML = "";
+        if (!shows.length) {
+          const empty = document.createElement("div");
+          empty.className = "shows-empty";
+          empty.textContent = container.dataset.emptyMessage || "No shows";
+          container.appendChild(empty);
+          return;
+        }
         shows.forEach(show => {
           const row = document.createElement("div");
           row.className = "show-row";
@@ -303,6 +380,11 @@
 
           if (upcomingGrid) renderShows(upcoming, upcomingGrid);
           if (pastGrid) renderShows(past, pastGrid);
+
+          injectEventsJsonLd(upcoming, {
+            name: "The Cure Tribute",
+            url: "https://theenglishchannels.com/thecuretribute/"
+          });
         })
         .catch(error => {
           console.error("Error loading shows:", error);

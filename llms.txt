@@ -1,0 +1,35 @@
+# The English Channels
+
+> The English Channels is an Austin, TX based musical collective performing the music of The Cure, Joy Division, New Order, Echo & the Bunnymen, Interpol, and more. The project operates as two distinct live shows: **The Cure Tribute** (a dedicated tribute to The Cure) and **Lost Control** (post-punk, new wave, and darkwave covers).
+
+The site is a static HTML/CSS/JS marketing and booking site. Upcoming show listings are pulled dynamically from a shared Google Sheets CSV. Contact forms submit to Basin. Booking inquiries should be directed to booking@theenglishchannels.com.
+
+## Main pages
+
+- [Home](https://theenglishchannels.com/): Landing page with split sections for The Cure Tribute and Lost Control, and upcoming shows for both projects.
+- [About](https://theenglishchannels.com/about/): About The English Channels and its members.
+- [Contact](https://theenglishchannels.com/contact/): General contact form and booking email.
+
+## The Cure Tribute
+
+- [The Cure Tribute — Home](https://theenglishchannels.com/thecuretribute/): Project home page.
+- [About](https://theenglishchannels.com/thecuretribute/about/): About the Cure Tribute show.
+- [Shows](https://theenglishchannels.com/thecuretribute/shows/): Upcoming Cure Tribute performances.
+- [Videos](https://theenglishchannels.com/thecuretribute/videos/): Live performance videos.
+- [Photos](https://theenglishchannels.com/thecuretribute/photos/): Photo gallery.
+- [Contact](https://theenglishchannels.com/thecuretribute/contact/): Booking and contact form.
+
+## Lost Control
+
+- [Lost Control — Home](https://theenglishchannels.com/lostcontrol/): Project home page (post-punk / new wave / darkwave covers including Joy Division, New Order, Echo & the Bunnymen, Interpol).
+- [Shows](https://theenglishchannels.com/lostcontrol/shows/): Upcoming Lost Control performances.
+- [Videos](https://theenglishchannels.com/lostcontrol/videos/): Live performance videos.
+- [Photos](https://theenglishchannels.com/lostcontrol/photos/): Photo gallery.
+- [Contact](https://theenglishchannels.com/lostcontrol/contact/): Booking and contact form.
+
+## Optional
+
+- [Sitemap](https://theenglishchannels.com/sitemap.xml): Full XML sitemap of indexable pages.
+- [robots.txt](https://theenglishchannels.com/robots.txt): Crawler directives.
+- Booking email: booking@theenglishchannels.com
+- Social: [YouTube](https://www.youtube.com/@TheEnglishChannels), [Instagram](https://www.instagram.com/theenglishchannels/), [Facebook](https://www.facebook.com/theenglishchannelscovers/), [X](https://x.com/englishchannels)
