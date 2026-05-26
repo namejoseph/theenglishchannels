@@ -2,6 +2,7 @@
     --black: #000;
     --orange: #ff410d;
     --dark-gray: #2c3a40;
+    --brand-gray: #5a6b7c;
     --white: #fff;
     --font-family: 'Futura', sans-serif;
     /* Fallback to sans-serif */
@@ -506,7 +507,7 @@ img {
 
 .email-link:hover,
 .contact-link:hover {
-    color: var(--dark-gray);
+    color: var(--brand-gray);
 }
 
 .logo-link-cure {
